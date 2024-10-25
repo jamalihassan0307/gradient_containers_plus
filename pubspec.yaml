@@ -1,11 +1,13 @@
 name: flutter_containers
-description: "A new Flutter package project."
-author: Onat Çipli<jamalihassan0307gmail.com>
+description: A new Flutter package project.
 version: 0.0.1
-homepage:
+
+author: Onat Çipli <jamalihassan0307@gmail.com>
+
+homepage: https://github.com/jamalihassan0307/flutter_containers_first_extention
 
 environment:
-  sdk: ^3.5.3
+  sdk: ">=3.5.3 <4.0.0" 
   flutter: ">=1.17.0"
 
 dependencies:
