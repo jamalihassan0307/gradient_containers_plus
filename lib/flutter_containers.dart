@@ -1,5 +1,3 @@
-library flutter_containers;
-
 import 'package:flutter/material.dart';
 
 /// A Calculator.
