@@ -97,7 +97,7 @@ class _AnimatedGradientContainerState extends State<AnimatedGradientContainer> w
             borderRadius: widget.borderRadius ?? BorderRadius.circular(12),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.2),
+                color: Colors.black.withAlpha(51),
                 blurRadius: 8,
                 offset: const Offset(0, 4),
               ),
@@ -109,9 +109,9 @@ class _AnimatedGradientContainerState extends State<AnimatedGradientContainer> w
                 shaderCallback: (bounds) {
                   return LinearGradient(
                     colors: [
-                      Colors.white.withOpacity(0.1),
-                      Colors.white.withOpacity(0.3),
-                      Colors.white.withOpacity(0.1),
+                      Colors.white.withAlpha(26),
+                      Colors.white.withAlpha(77),
+                      Colors.white.withAlpha(26),
                     ],
                     stops: const [0.0, 0.5, 1.0],
                     begin: Alignment.topLeft,
