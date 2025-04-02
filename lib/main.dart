@@ -9,11 +9,40 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Flutter Gradient Containers',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        useMaterial3: true,
+      ),
       home: Scaffold(
-        appBar: AppBar(title: const Text('Gradient Containers Example')),
-        body: const Padding(
-          padding: EdgeInsets.all(16.0),
-          child: GradientContainers(),
+        appBar: AppBar(
+          title: const Text('Gradient Containers Demo'),
+          backgroundColor: Colors.blue,
+          foregroundColor: Colors.white,
+        ),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Beautiful Gradient Containers',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                const Text(
+                  'This package provides various gradient container templates with advanced features like patterns, shadows, and effects.',
+                  style: TextStyle(fontSize: 16),
+                ),
+                const SizedBox(height: 24),
+                const GradientContainers(),
+              ],
+            ),
+          ),
         ),
       ),
     );
