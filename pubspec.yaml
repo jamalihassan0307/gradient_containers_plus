@@ -2,8 +2,6 @@ name: flutter_containers
 description: A Flutter package providing beautiful gradient container templates.
 version: 0.0.1
 
-author: Onat Çipli <jamalihassan0307@gmail.com>
-
 homepage: https://github.com/jamalihassan0307/flutter_containers_first_extention
 
 environment:
