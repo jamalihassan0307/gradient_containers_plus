@@ -1,3 +1,11 @@
+## 1.0.8
+
+* Fixed static analysis issues in animated gradient container
+* Replaced deprecated withOpacity with withAlpha for better precision
+* Improved color opacity handling in gradient effects
+* Enhanced shadow and shader mask effects
+* Updated documentation to reflect API changes
+
 ## 1.0.7
 
 * Reorganized README layout for better visual presentation
