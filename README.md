@@ -13,17 +13,13 @@ and the Flutter guide for
 
 # gradient_containers_plus
 
-<div style="display: flex; justify-content: space-between; align-items: flex-start;">
-<div style="flex: 2;">
-
 A Flutter package that provides beautiful and customizable gradient container templates for your Flutter applications. This package offers pre-designed container widgets with various gradient styles, shadows, and rounded corners to enhance your app's visual appeal.
 
-</div>
-<div style="flex: 1; text-align: center;">
-<img src="image/image.jpg" alt="Jam ali Hassan" style="border-radius: 50%; width: 200px; height: 200px; object-fit: cover;"/>
-<h3>Jam ali Hassan</h3>
-</div>
-</div>
+<p align="center">
+  <img src="image/image.jpg" width="200" style="border-radius: 50%"/>
+  <br/>
+  <b>Jam ali Hassan</b>
+</p>
 
 ## Developer
 
