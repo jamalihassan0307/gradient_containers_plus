@@ -222,7 +222,7 @@ class PatternDecoration extends Decoration {
 
   @override
   BoxPainter createBoxPainter([VoidCallback? onChanged]) {
-    return _PatternDecorationPainter(
+    return PatternDecorationPainter(
       pattern: pattern,
       color: color,
       onChanged: onChanged,
@@ -238,11 +238,11 @@ enum PatternDecorationPattern {
 }
 
 /// Custom painter for pattern decorations.
-class _PatternDecorationPainter extends BoxPainter {
+class PatternDecorationPainter extends BoxPainter {
   final PatternDecorationPattern pattern;
   final Color color;
 
-  _PatternDecorationPainter({
+  PatternDecorationPainter({
     required this.pattern,
     required this.color,
     VoidCallback? onChanged,
