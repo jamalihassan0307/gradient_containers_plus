@@ -1,7 +1,21 @@
-## 0.0.1
+## 1.0.0
 
-* Initial release
-* Added GradientContainers widget with two template designs
-* Implemented vertical and radial gradient containers
-* Added shadow effects and rounded corners
-* Made containers responsive with double.infinity width
+* Initial stable release
+* Added 10 beautiful gradient container templates:
+  - Vertical Gradient
+  - Radial Gradient
+  - Sweep Gradient
+  - Animated Gradient
+  - Glassmorphic Effect
+  - Neon Glow
+  - Animated Pattern
+  - 3D Effect
+  - Metallic Effect
+  - Holographic Effect
+* Added pattern decorations (dots, lines, grid)
+* Added animation support
+* Added shimmer effects
+* Added comprehensive example app
+* Improved documentation
+* Added customization options
+* Added responsive design support
