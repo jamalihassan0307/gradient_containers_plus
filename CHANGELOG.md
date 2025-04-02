@@ -1,3 +1,11 @@
+## 1.1.0
+
+* Fixed formatting issues across all files
+* Improved code style consistency
+* Enhanced readability of barrel file exports
+* Fixed line endings and whitespace
+* Updated static analysis compliance
+
 ## 1.0.9
 
 * Fixed static analysis issues across all gradient containers
