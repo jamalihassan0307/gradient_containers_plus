@@ -49,12 +49,12 @@ class NeonGradientContainer extends GradientContainerBase {
       borderRadius: borderRadius ?? BorderRadius.circular(12),
       boxShadow: [
         BoxShadow(
-          color: colors[0].withOpacity(glowIntensity),
+          color: colors[0].withAlpha((glowIntensity * 255).round()),
           blurRadius: 20,
           spreadRadius: glowSpread,
         ),
         BoxShadow(
-          color: colors[1].withOpacity(glowIntensity),
+          color: colors[1].withAlpha((glowIntensity * 255).round()),
           blurRadius: 20,
           spreadRadius: glowSpread,
         ),
