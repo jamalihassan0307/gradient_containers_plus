@@ -1,7 +1,19 @@
+## 1.0.7
+
+* Reorganized README layout for better visual presentation
+* Improved image and code arrangement in documentation
+* Enhanced screenshot display with larger images (400px width)
+* Added side-by-side comparison of default and custom containers
+* Improved code example formatting and readability
+
 ## 1.0.6
 
-* Added screenshots for all gradient containers
-* Added animated GIF examples
+* Added comprehensive screenshots for all gradient containers
+* Added animated GIF examples for animated containers
+* Improved documentation with better code examples
+* Enhanced README with badges and social links
+* Added developer profile section
+* Improved overall documentation structure
 
 ## 1.0.5
 
