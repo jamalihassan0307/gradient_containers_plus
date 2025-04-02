@@ -15,7 +15,7 @@ and the Flutter guide for
 
 <div align="center">
   <kbd>
-    <img src="image/image.jpg" width="200" alt="Jam Ali Hassan"/>
+    <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/main/image/image.jpg" width="200" alt="Jam Ali Hassan"/>
   </kbd>
   <br/>
   <br/>
@@ -44,7 +44,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  gradient_containers_plus: ^1.0.5
+  gradient_containers_plus: ^1.0.6
 ```
 
 ## Usage Examples
@@ -66,10 +66,10 @@ VerticalGradientContainer(
 
 </td>
 <td>
-<img src="screenshots/vertical_gradient_container.png" width="200" alt="Vertical Gradient"/>
+<img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/main/screenshots/vertical_gradient_container.png" width="200" alt="Vertical Gradient"/>
 </td>
 <td>
-<img src="screenshots/custom_gradient_container.png" width="200" alt="Custom Vertical Gradient"/>
+<img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/main/screenshots/custom_gradient_container.png" width="200" alt="Custom Vertical Gradient"/>
 </td>
 </tr>
 </table>
@@ -92,10 +92,10 @@ RadialGradientContainer(
 
 </td>
 <td>
-<img src="screenshots/radial_gradient_container.png" width="200" alt="Radial Gradient"/>
+<img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/main/screenshots/radial_gradient_container.png" width="200" alt="Radial Gradient"/>
 </td>
 <td>
-<img src="screenshots/custom_radial_gradient.png" width="200" alt="Custom Radial Gradient"/>
+<img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/main/screenshots/custom_radial_gradient.png" width="200" alt="Custom Radial Gradient"/>
 </td>
 </tr>
 </table>
@@ -123,10 +123,10 @@ SweepGradientContainer(
 
 </td>
 <td>
-<img src="screenshots/sweep_gradient_container.png" width="200" alt="Sweep Gradient"/>
+<img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/main/screenshots/sweep_gradient_container.png" width="200" alt="Sweep Gradient"/>
 </td>
 <td>
-<img src="screenshots/custom_sweep_gradient.png" width="200" alt="Custom Sweep Gradient"/>
+<img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/main/screenshots/custom_sweep_gradient.png" width="200" alt="Custom Sweep Gradient"/>
 </td>
 </tr>
 </table>
@@ -153,10 +153,10 @@ AnimatedGradientContainer(
 
 </td>
 <td>
-<img src="screenshots/animated_gradient_container.gif" width="200" alt="Animated Gradient"/>
+<img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/main/screenshots/animated_gradient_container.gif" width="200" alt="Animated Gradient"/>
 </td>
 <td>
-<img src="screenshots/custom_animated_gradient.gif" width="200" alt="Custom Animated Gradient"/>
+<img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/main/screenshots/custom_animated_gradient.gif" width="200" alt="Custom Animated Gradient"/>
 </td>
 </tr>
 </table>
@@ -180,10 +180,10 @@ GlassmorphicGradientContainer(
 
 </td>
 <td>
-<img src="screenshots/glassmorphic_gradient_container.png" width="200" alt="Glassmorphic Effect"/>
+<img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/main/screenshots/glassmorphic_gradient_container.png" width="200" alt="Glassmorphic Effect"/>
 </td>
 <td>
-<img src="screenshots/custom_glassmorphic_gradient.png" width="200" alt="Custom Glassmorphic Effect"/>
+<img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/main/screenshots/custom_glassmorphic_gradient.png" width="200" alt="Custom Glassmorphic Effect"/>
 </td>
 </tr>
 </table>
@@ -210,10 +210,10 @@ NeonGradientContainer(
 
 </td>
 <td>
-<img src="screenshots/neon_gradient_container.png" width="200" alt="Neon Glow"/>
+<img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/main/screenshots/neon_gradient_container.png" width="200" alt="Neon Glow"/>
 </td>
 <td>
-<img src="screenshots/custom_neon_gradient.png" width="200" alt="Custom Neon Glow"/>
+<img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/main/screenshots/custom_neon_gradient.png" width="200" alt="Custom Neon Glow"/>
 </td>
 </tr>
 </table>
