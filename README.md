@@ -11,7 +11,7 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/to/develop-packages).
 -->
 
-# flutter_gradient_containers
+# gradient_containers_plus
 
 A Flutter package that provides beautiful and customizable gradient container templates for your Flutter applications. This package offers pre-designed container widgets with various gradient styles, shadows, and rounded corners to enhance your app's visual appeal.
 
@@ -31,7 +31,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  flutter_gradient_containers: ^0.0.1
+  gradient_containers_plus: ^0.0.1
 ```
 
 ## Usage
@@ -39,7 +39,7 @@ dependencies:
 Import the package in your Dart code:
 
 ```dart
-import 'package:flutter_gradient_containers/flutter_gradient_containers.dart';
+import 'package:gradient_containers_plus/gradient_containers_plus.dart';
 ```
 
 ### Basic Usage
@@ -153,7 +153,7 @@ You can customize the containers by modifying:
 
 For more information about this package, visit:
 * [GitHub Repository](https://github.com/jamalihassan0307/flutter_containers_first_extention)
-* [Pub.dev Package](https://pub.dev/packages/flutter_gradient_containers)
+* [Pub.dev Package](https://pub.dev/packages/gradient_containers_plus)
 
 To contribute to this package:
 1. Fork the repository
