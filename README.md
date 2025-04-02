@@ -15,13 +15,21 @@ and the Flutter guide for
 
 A Flutter package that provides beautiful and customizable gradient container templates for your Flutter applications. This package offers pre-designed container widgets with various gradient styles, shadows, and rounded corners to enhance your app's visual appeal.
 
+## Developer
+
+Developed by [Jamali Hassan](https://github.com/jamalihassan0307)
+
+- 🌐 [Portfolio](https://jamalihassan0307.github.io/portfolio.github.io)
+- 📧 Email: jamalihassan0307@gmail.com
+- 🔗 [LinkedIn](https://www.linkedin.com/in/jamalihassan0307)
+- 💻 [GitHub](https://github.com/jamalihassan0307)
+
 ## Features
 
-* 10 pre-designed gradient container templates
+* 6 pre-designed gradient container templates
 * Multiple gradient types (Linear, Radial, Sweep)
-* Advanced effects (Glassmorphic, Neon, 3D, Metallic, Holographic)
-* Customizable patterns (dots, lines, grid)
-* Animated patterns and shimmer effects
+* Advanced effects (Glassmorphic, Neon)
+* Animated gradients
 * Responsive design with flexible width
 * Easy to integrate and use
 
@@ -31,7 +39,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  gradient_containers_plus: ^0.0.1
+  gradient_containers_plus: ^1.0.1
 ```
 
 ## Usage
@@ -42,117 +50,83 @@ Import the package in your Dart code:
 import 'package:gradient_containers_plus/gradient_containers_plus.dart';
 ```
 
-### Basic Usage
+### Available Containers
 
-Use the `GradientContainers` widget to display all gradient templates:
+1. **Vertical Gradient Container**
+   ```dart
+   VerticalGradientContainer(
+     height: 150,
+     colors: const [Colors.blue, Colors.purple],
+     child: const Center(child: Text('Vertical Gradient')),
+   )
+   ```
 
-```dart
-const GradientContainers()
-```
+2. **Radial Gradient Container**
+   ```dart
+   RadialGradientContainer(
+     height: 150,
+     colors: const [Colors.orange, Colors.red],
+     radius: 0.85,
+     child: const Center(child: Text('Radial Gradient')),
+   )
+   ```
 
-### Individual Container Usage
+3. **Sweep Gradient Container**
+   ```dart
+   SweepGradientContainer(
+     height: 150,
+     colors: const [Colors.green, Colors.teal, Colors.blue],
+     startAngle: 0,
+     endAngle: 2 * 3.14159,
+     child: const Center(child: Text('Sweep Gradient')),
+   )
+   ```
 
-You can also use individual containers by creating custom widgets:
+4. **Animated Gradient Container**
+   ```dart
+   AnimatedGradientContainer(
+     height: 150,
+     colors: const [Colors.purple, Colors.blue, Colors.purple],
+     duration: const Duration(seconds: 2),
+     child: const Center(child: Text('Animated Gradient')),
+   )
+   ```
 
-```dart
-// Example of a custom gradient container
-Container(
-  width: double.infinity,
-  height: 150,
-  decoration: BoxDecoration(
-    gradient: const LinearGradient(
-      colors: [Colors.blue, Colors.purple],
-      begin: Alignment.topLeft,
-      end: Alignment.bottomRight,
-    ),
-    borderRadius: BorderRadius.circular(12),
-    boxShadow: [
-      BoxShadow(
-        color: Colors.black.withOpacity(0.2),
-        blurRadius: 8,
-        offset: const Offset(0, 2),
-      ),
-    ],
-  ),
-  child: const Center(
-    child: Text(
-      'Custom Gradient',
-      style: TextStyle(
-        color: Colors.white,
-        fontSize: 20,
-        fontWeight: FontWeight.bold,
-      ),
-    ),
-  ),
-)
-```
+5. **Glassmorphic Gradient Container**
+   ```dart
+   GlassmorphicGradientContainer(
+     height: 150,
+     colors: const [Colors.white, Colors.white],
+     blurSigma: 10,
+     borderWidth: 1,
+     child: const Center(child: Text('Glassmorphic Effect')),
+   )
+   ```
 
-## Available Templates
-
-1. **Vertical Gradient**
-   - Linear gradient from blue to purple
-   - Subtle shadow effect
-   - Rounded corners
-
-2. **Radial Gradient**
-   - Radial gradient from orange to red
-   - Enhanced shadow effect
-   - Rounded corners
-
-3. **Sweep Gradient**
-   - Sweep gradient with green, teal, and blue
-   - Pattern overlay
-   - Rounded corners
-
-4. **Animated Gradient**
-   - Multi-color gradient with shimmer effect
-   - Animated pattern overlay
-   - Rounded corners
-
-5. **Glassmorphic Effect**
-   - Transparent gradient with blur effect
-   - Subtle border
-   - Modern glass-like appearance
-
-6. **Neon Glow**
-   - Bright gradient with glow effect
-   - Multiple colored shadows
-   - Text shadow for readability
-
-7. **Animated Pattern**
-   - Deep blue gradient background
-   - Custom animated pattern overlay
-   - Rounded corners
-
-8. **3D Effect**
-   - Professional color scheme
-   - Multiple shadows for depth
-   - Text shadow for depth
-
-9. **Metallic Effect**
-   - Grey gradient with shimmer
-   - Subtle shadow
-   - Shader mask for metallic look
-
-10. **Holographic Effect**
-    - Multiple colored shadows
-    - Transparent gradient layers
-    - Shimmer effect overlay
+6. **Neon Gradient Container**
+   ```dart
+   NeonGradientContainer(
+     height: 150,
+     colors: const [Color(0xFF00FF87), Color(0xFF60EFFF)],
+     glowIntensity: 0.5,
+     glowSpread: 2,
+     child: const Center(child: Text('Neon Glow')),
+   )
+   ```
 
 ## Customization
 
-You can customize the containers by modifying:
-- Colors
-- Gradient types
-- Shadow effects
+Each container can be customized with:
+- Custom colors
 - Border radius
-- Pattern types
-- Animation effects
+- Width and height
+- Padding and margin
+- Specific effects (blur, glow, animation duration)
 
 ## Additional information
 
 For more information about this package, visit:
-* [GitHub Repository](https://github.com/jamalihassan0307/flutter_containers_first_extention)
+* [GitHub Repository](https://github.com/jamalihassan0307/gradient_containers_plus)
 * [Pub.dev Package](https://pub.dev/packages/gradient_containers_plus)
 
 To contribute to this package:
