@@ -85,7 +85,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  gradient_containers_plus: ^1.0.1
+  gradient_containers_plus: ^1.0.5
 ```
 
 ## Usage
