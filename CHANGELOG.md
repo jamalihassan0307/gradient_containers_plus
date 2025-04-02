@@ -1,12 +1,45 @@
+## 1.0.5
+
+* Added screenshots for all gradient containers
+* Added animated GIF examples
+* Improved documentation coverage to 80%
+* Added assets configuration in pubspec.yaml
+* Fixed homepage URL issues
+* Enhanced example app with better UI
+* Added platform compatibility badges
+* Improved code quality and removed linter warnings
+
+## 1.0.4
+
+* Added comprehensive API documentation
+* Fixed minor bugs in gradient containers
+* Improved error handling
+* Enhanced customization options
+* Updated example app with more use cases
+
+## 1.0.3
+
+* Added proper null safety support
+* Improved performance of animated containers
+* Enhanced glassmorphic effect
+* Added more customization options for neon glow
+* Updated documentation with better examples
+
+## 1.0.2
+
+* Fixed issues with gradient animations
+* Improved blur effect performance
+* Added more color customization options
+* Enhanced shadow effects
+* Updated example app UI
+
 ## 1.0.1
 
 * Fixed documentation issues
-* Added comprehensive API documentation
-* Added platform compatibility badges
-* Added screenshots and examples
-* Improved code quality and removed linter warnings
-* Updated README with detailed usage examples
 * Added contribution guidelines
+* Improved README with detailed examples
+* Enhanced code comments
+* Added proper license information
 
 ## 1.0.0
 
