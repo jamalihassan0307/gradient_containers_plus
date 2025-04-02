@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
 import '../base/gradient_container_base.dart';
 
-/// A container with a radial gradient background
-class RadialGradientContainer extends GradientContainerBase {
+/// A container with a sweep gradient background
+class SweepGradientContainer extends GradientContainerBase {
   /// The colors for the gradient
   final List<Color> colors;
   
   /// The stops for the gradient colors
   final List<double>? stops;
   
-  /// The center point of the radial gradient
+  /// The center point of the sweep gradient
   final AlignmentGeometry center;
   
-  /// The radius of the radial gradient
-  final double radius;
+  /// The start angle of the sweep gradient
+  final double startAngle;
+  
+  /// The end angle of the sweep gradient
+  final double endAngle;
 
-  const RadialGradientContainer({
+  const SweepGradientContainer({
     super.key,
     super.child,
     super.borderRadius,
@@ -23,27 +26,29 @@ class RadialGradientContainer extends GradientContainerBase {
     super.height,
     super.padding,
     super.margin,
-    this.colors = const [Colors.orange, Colors.red],
+    this.colors = const [Colors.green, Colors.teal, Colors.blue],
     this.stops,
     this.center = Alignment.center,
-    this.radius = 0.85,
+    this.startAngle = 0,
+    this.endAngle = 2 * 3.14159,
   });
 
   @override
   BoxDecoration buildDecoration(BuildContext context) {
     return BoxDecoration(
-      gradient: RadialGradient(
+      gradient: SweepGradient(
         colors: colors,
         stops: stops,
         center: center,
-        radius: radius,
+        startAngle: startAngle,
+        endAngle: endAngle,
       ),
       borderRadius: borderRadius ?? BorderRadius.circular(12),
       boxShadow: [
         BoxShadow(
-          color: Colors.black.withOpacity(0.3),
-          blurRadius: 10,
-          offset: const Offset(0, 4),
+          color: Colors.black.withOpacity(0.2),
+          blurRadius: 6,
+          offset: const Offset(0, 3),
         ),
       ],
     );
