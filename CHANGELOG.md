@@ -1,3 +1,15 @@
+## 1.0.9
+
+* Fixed static analysis issues across all gradient containers
+* Replaced deprecated withOpacity with withAlpha in:
+  - Neon Gradient Container
+  - Radial Gradient Container
+  - Sweep Gradient Container
+  - Vertical Gradient Container
+* Improved color opacity handling for better precision
+* Enhanced shadow effects with proper alpha values
+* Updated documentation to reflect API changes
+
 ## 1.0.8
 
 * Fixed static analysis issues in animated gradient container
