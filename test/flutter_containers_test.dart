@@ -43,7 +43,7 @@ void main() {
       );
       
       final painter = decoration.createBoxPainter();
-      expect(painter, isA<_PatternDecorationPainter>());
+      expect(painter, isA<PatternDecorationPainter>());
     });
   });
 }
