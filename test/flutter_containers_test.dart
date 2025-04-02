@@ -17,6 +17,8 @@ void main() {
       );
 
       expect(find.byType(VerticalGradientContainer), findsOneWidget);
+      final container = tester.widget<VerticalGradientContainer>(find.byType(VerticalGradientContainer));
+      expect(container.buildDecoration(tester.element(find.byType(VerticalGradientContainer))).boxShadow, isNotEmpty);
     });
 
     testWidgets('renders radial gradient container', (WidgetTester tester) async {
@@ -32,6 +34,8 @@ void main() {
       );
 
       expect(find.byType(RadialGradientContainer), findsOneWidget);
+      final container = tester.widget<RadialGradientContainer>(find.byType(RadialGradientContainer));
+      expect(container.buildDecoration(tester.element(find.byType(RadialGradientContainer))).boxShadow, isNotEmpty);
     });
 
     testWidgets('renders sweep gradient container', (WidgetTester tester) async {
@@ -47,6 +51,8 @@ void main() {
       );
 
       expect(find.byType(SweepGradientContainer), findsOneWidget);
+      final container = tester.widget<SweepGradientContainer>(find.byType(SweepGradientContainer));
+      expect(container.buildDecoration(tester.element(find.byType(SweepGradientContainer))).boxShadow, isNotEmpty);
     });
 
     testWidgets('renders animated gradient container', (WidgetTester tester) async {
@@ -79,6 +85,8 @@ void main() {
 
       expect(find.byType(GlassmorphicGradientContainer), findsOneWidget);
       expect(find.byType(BackdropFilter), findsOneWidget);
+      final container = tester.widget<GlassmorphicGradientContainer>(find.byType(GlassmorphicGradientContainer));
+      expect(container.buildDecoration(tester.element(find.byType(GlassmorphicGradientContainer))).boxShadow, isNotEmpty);
     });
 
     testWidgets('renders neon gradient container', (WidgetTester tester) async {
@@ -94,8 +102,8 @@ void main() {
       );
 
       expect(find.byType(NeonGradientContainer), findsOneWidget);
-      final container = tester.widget<Container>(find.byType(NeonGradientContainer));
-      final decoration = container.decoration as BoxDecoration;
+      final container = tester.widget<NeonGradientContainer>(find.byType(NeonGradientContainer));
+      final decoration = container.buildDecoration(tester.element(find.byType(NeonGradientContainer)));
       expect(decoration.boxShadow!.length, greaterThan(1));
     });
   });
