@@ -126,12 +126,9 @@ class GradientContainers extends StatelessWidget {
         children: [
           Center(
             child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                pattern: PatternDecoration(
-                  pattern: PatternDecorationPattern.dots,
-                  color: Colors.white.withOpacity(0.1),
-                ),
+              decoration: PatternDecoration(
+                pattern: PatternDecorationPattern.dots,
+                color: Colors.white.withOpacity(0.1),
               ),
             ),
           ),
