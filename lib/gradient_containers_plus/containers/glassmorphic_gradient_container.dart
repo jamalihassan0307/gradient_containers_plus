@@ -6,22 +6,22 @@ import '../base/gradient_container_base.dart';
 class GlassmorphicGradientContainer extends GradientContainerBase {
   /// The colors for the gradient
   final List<Color> colors;
-  
+
   /// The stops for the gradient colors
   final List<double>? stops;
-  
+
   /// The begin alignment of the gradient
   final AlignmentGeometry begin;
-  
+
   /// The end alignment of the gradient
   final AlignmentGeometry end;
-  
+
   /// The blur sigma for the glassmorphic effect
   final double blurSigma;
-  
+
   /// The border color for the glassmorphic effect
   final Color borderColor;
-  
+
   /// The border width for the glassmorphic effect
   final double borderWidth;
 
@@ -102,4 +102,4 @@ class GlassmorphicGradientContainer extends GradientContainerBase {
       ],
     );
   }
-} 
+}

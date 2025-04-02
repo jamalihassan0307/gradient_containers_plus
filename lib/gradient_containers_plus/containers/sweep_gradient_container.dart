@@ -5,16 +5,16 @@ import '../base/gradient_container_base.dart';
 class SweepGradientContainer extends GradientContainerBase {
   /// The colors for the gradient
   final List<Color> colors;
-  
+
   /// The stops for the gradient colors
   final List<double>? stops;
-  
+
   /// The center point of the sweep gradient
   final AlignmentGeometry center;
-  
+
   /// The start angle of the sweep gradient
   final double startAngle;
-  
+
   /// The end angle of the sweep gradient
   final double endAngle;
 
@@ -53,4 +53,4 @@ class SweepGradientContainer extends GradientContainerBase {
       ],
     );
   }
-} 
+}

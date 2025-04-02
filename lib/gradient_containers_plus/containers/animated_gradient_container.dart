@@ -5,34 +5,34 @@ import 'package:flutter/material.dart';
 class AnimatedGradientContainer extends StatefulWidget {
   /// The colors for the gradient
   final List<Color> colors;
-  
+
   /// The stops for the gradient colors
   final List<double>? stops;
-  
+
   /// The begin alignment of the gradient
   final AlignmentGeometry begin;
-  
+
   /// The end alignment of the gradient
   final AlignmentGeometry end;
-  
+
   /// The duration of the animation
   final Duration duration;
-  
+
   /// The child widget to be displayed inside the container
   final Widget? child;
-  
+
   /// The border radius of the container
   final BorderRadius? borderRadius;
-  
+
   /// The width of the container
   final double? width;
-  
+
   /// The height of the container
   final double? height;
-  
+
   /// The padding of the container
   final EdgeInsetsGeometry? padding;
-  
+
   /// The margin of the container
   final EdgeInsetsGeometry? margin;
 
@@ -52,10 +52,12 @@ class AnimatedGradientContainer extends StatefulWidget {
   });
 
   @override
-  State<AnimatedGradientContainer> createState() => _AnimatedGradientContainerState();
+  State<AnimatedGradientContainer> createState() =>
+      _AnimatedGradientContainerState();
 }
 
-class _AnimatedGradientContainerState extends State<AnimatedGradientContainer> with SingleTickerProviderStateMixin {
+class _AnimatedGradientContainerState extends State<AnimatedGradientContainer>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
 
@@ -121,7 +123,8 @@ class _AnimatedGradientContainerState extends State<AnimatedGradientContainer> w
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: widget.borderRadius ?? BorderRadius.circular(12),
+                    borderRadius:
+                        widget.borderRadius ?? BorderRadius.circular(12),
                   ),
                 ),
               ),
@@ -132,4 +135,4 @@ class _AnimatedGradientContainerState extends State<AnimatedGradientContainer> w
       },
     );
   }
-} 
+}

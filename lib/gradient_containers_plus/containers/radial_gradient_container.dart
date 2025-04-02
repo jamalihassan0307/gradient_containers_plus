@@ -5,13 +5,13 @@ import '../base/gradient_container_base.dart';
 class RadialGradientContainer extends GradientContainerBase {
   /// The colors for the gradient
   final List<Color> colors;
-  
+
   /// The stops for the gradient colors
   final List<double>? stops;
-  
+
   /// The center point of the radial gradient
   final AlignmentGeometry center;
-  
+
   /// The radius of the radial gradient
   final double radius;
 
@@ -48,4 +48,4 @@ class RadialGradientContainer extends GradientContainerBase {
       ],
     );
   }
-} 
+}

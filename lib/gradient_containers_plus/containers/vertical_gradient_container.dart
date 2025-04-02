@@ -5,13 +5,13 @@ import '../base/gradient_container_base.dart';
 class VerticalGradientContainer extends GradientContainerBase {
   /// The colors for the gradient
   final List<Color> colors;
-  
+
   /// The stops for the gradient colors
   final List<double>? stops;
-  
+
   /// The begin alignment of the gradient
   final AlignmentGeometry begin;
-  
+
   /// The end alignment of the gradient
   final AlignmentGeometry end;
 
@@ -48,4 +48,4 @@ class VerticalGradientContainer extends GradientContainerBase {
       ],
     );
   }
-} 
+}
