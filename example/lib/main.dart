@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gradient_containers_plus/flutter_containers.dart';
+import 'package:gradient_containers_plus/gradient_containers_plus.dart';
 
 void main() => runApp(const MyApp());
 
@@ -50,9 +50,7 @@ class HomePage extends StatelessWidget {
                 style: TextStyle(fontSize: 16),
               ),
               const SizedBox(height: 24),
-              const GradientContainers(),
-              const SizedBox(height: 32),
-              _buildCustomExample(),
+              _buildExamples(),
             ],
           ),
         ),
@@ -60,128 +58,52 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildCustomExample() {
+  Widget _buildExamples() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          'Custom Container Example',
+          'Vertical Gradient Container',
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
         ),
         const SizedBox(height: 16),
-        Container(
-          width: double.infinity,
+        VerticalGradientContainer(
           height: 150,
-          decoration: BoxDecoration(
-            gradient: const LinearGradient(
-              colors: [Color(0xFF6B73FF), Color(0xFF000DFF)],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
+          child: const Center(
+            child: Text(
+              'Vertical Gradient',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-            borderRadius: BorderRadius.circular(12),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.2),
-                blurRadius: 8,
-                offset: const Offset(0, 4),
-              ),
-            ],
-          ),
-          child: Stack(
-            children: [
-              AnimatedBuilder(
-                animation: const AlwaysStoppedAnimation(0),
-                builder: (context, child) {
-                  return CustomPaint(
-                    painter: AnimatedPatternPainter(
-                      pattern: PatternDecorationPattern.grid,
-                      color: Colors.white.withOpacity(0.1),
-                      animation: 0,
-                    ),
-                  );
-                },
-              ),
-              const Center(
-                child: Text(
-                  'Custom Animated Pattern',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ],
           ),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 24),
         const Text(
-          'Code Example:',
+          'Custom Vertical Gradient',
           style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        const SizedBox(height: 8),
-        Container(
-          padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            color: Colors.grey[200],
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child:  Text(
-            '''Container(
-  width: double.infinity,
-  height: 150,
-  decoration: BoxDecoration(
-    gradient: const LinearGradient(
-      colors: [Color(0xFF6B73FF), Color(0xFF000DFF)],
-      begin: Alignment.topLeft,
-      end: Alignment.bottomRight,
-    ),
-    borderRadius: BorderRadius.circular(12),
-    boxShadow: [
-      BoxShadow(
-        color: Colors.black.withOpacity(0.2),
-        blurRadius: 8,
-        offset: const Offset(0, 4),
-      ),
-    ],
-  ),
-  child: Stack(
-    children: [
-      AnimatedBuilder(
-        animation: const AlwaysStoppedAnimation(0),
-        builder: (context, child) {
-          return CustomPaint(
-            painter: AnimatedPatternPainter(
-              pattern: PatternDecorationPattern.grid,
-              color: Colors.white.withOpacity(0.1),
-              animation: 0,
-            ),
-          );
-        },
-      ),
-      const Center(
-        child: Text(
-          'Custom Animated Pattern',
-          style: TextStyle(
-            color: Colors.white,
             fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
         ),
-      ),
-    ],
-  ),
-)''',
-            style: TextStyle(
-              fontFamily: 'monospace',
-              fontSize: 12,
-              color: Colors.grey.shade800,
+        const SizedBox(height: 16),
+        VerticalGradientContainer(
+          height: 150,
+          colors: const [Colors.orange, Colors.red],
+          borderRadius: BorderRadius.circular(20),
+          child: const Center(
+            child: Text(
+              'Custom Colors & Border Radius',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),
