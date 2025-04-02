@@ -1,3 +1,8 @@
+## 1.0.6
+
+* Added screenshots for all gradient containers
+* Added animated GIF examples
+
 ## 1.0.5
 
 * Added screenshots for all gradient containers
