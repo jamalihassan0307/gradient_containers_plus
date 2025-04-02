@@ -28,7 +28,7 @@ A Flutter package that provides beautiful and customizable gradient container te
 
 ## Developer
 
-Developed by [Jam ali Hassan](https://github.com/jamalihassan0307)
+Developed by [Jam Ali Hassan](https://github.com/jamalihassan0307)
 
 - 🌐 [Portfolio](https://jamalihassan0307.github.io/portfolio.github.io)
 - 📧 Email: jamalihassan0307@gmail.com
