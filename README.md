@@ -15,11 +15,13 @@ and the Flutter guide for
 
 A Flutter package that provides beautiful and customizable gradient container templates for your Flutter applications. This package offers pre-designed container widgets with various gradient styles, shadows, and rounded corners to enhance your app's visual appeal.
 
-<p align="center">
-  <img src="image/image.jpg" width="200" style="border-radius: 50%"/>
+<div align="center">
+  <img src="https://github.com/jamalihassan0307/jamalihassan0307/raw/main/pic/profile.jpg" width="200" style="border-radius: 100px"/>
   <br/>
   <b>Jam ali Hassan</b>
-</p>
+  <br/>
+  <i>Flutter Developer</i>
+</div>
 
 ## Developer
 
