@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_containers/flutter_containers.dart';
+import 'package:flutter_gradient_containers/flutter_containers.dart';
 
 void main() {
   group('GradientContainers Widget Tests', () {

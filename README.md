@@ -37,7 +37,7 @@ dependencies:
 Import the package in your Dart code:
 
 ```dart
-import 'package:flutter_containers/flutter_containers.dart';
+import 'package:flutter_gradient_containers/flutter_containers.dart';
 ```
 
 Use the `GradientContainers` widget in your app:
