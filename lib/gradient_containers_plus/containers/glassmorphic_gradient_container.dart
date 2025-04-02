@@ -55,19 +55,19 @@ class GlassmorphicGradientContainer extends GradientContainerBase {
           margin: margin,
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: colors.map((color) => color.withOpacity(0.2)).toList(),
+              colors: colors.map((color) => color.withAlpha(51)).toList(),
               stops: stops,
               begin: begin,
               end: end,
             ),
             borderRadius: borderRadius ?? BorderRadius.circular(12),
             border: Border.all(
-              color: borderColor.withOpacity(0.2),
+              color: borderColor.withAlpha(51),
               width: borderWidth,
             ),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.1),
+                color: Colors.black.withAlpha(26),
                 blurRadius: 10,
                 offset: const Offset(0, 4),
               ),
@@ -83,19 +83,19 @@ class GlassmorphicGradientContainer extends GradientContainerBase {
   BoxDecoration buildDecoration(BuildContext context) {
     return BoxDecoration(
       gradient: LinearGradient(
-        colors: colors.map((color) => color.withOpacity(0.2)).toList(),
+        colors: colors.map((color) => color.withAlpha(51)).toList(),
         stops: stops,
         begin: begin,
         end: end,
       ),
       borderRadius: borderRadius ?? BorderRadius.circular(12),
       border: Border.all(
-        color: borderColor.withOpacity(0.2),
+        color: borderColor.withAlpha(51),
         width: borderWidth,
       ),
       boxShadow: [
         BoxShadow(
-          color: Colors.black.withOpacity(0.1),
+          color: Colors.black.withAlpha(26),
           blurRadius: 10,
           offset: const Offset(0, 4),
         ),
