@@ -11,29 +11,56 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/to/develop-packages).
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+# flutter_containers
+
+A Flutter package that provides beautiful and customizable gradient container templates for your Flutter applications. This package offers pre-designed container widgets with various gradient styles, shadows, and rounded corners to enhance your app's visual appeal.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+* Pre-designed gradient container templates
+* Vertical and radial gradient support
+* Customizable shadows and rounded corners
+* Responsive design with flexible width
+* Easy to integrate and use
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Add this to your package's `pubspec.yaml` file:
+
+```yaml
+dependencies:
+  flutter_containers: ^0.0.1
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+Import the package in your Dart code:
 
 ```dart
-const like = 'sample';
+import 'package:flutter_containers/flutter_containers.dart';
 ```
+
+Use the `GradientContainers` widget in your app:
+
+```dart
+const GradientContainers()
+```
+
+This will display two beautiful gradient containers:
+1. A vertical gradient container with blue to purple colors
+2. A radial gradient container with orange to red colors and a shadow effect
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+For more information about this package, visit:
+* [GitHub Repository](https://github.com/jamalihassan0307/flutter_containers_first_extention)
+* [Pub.dev Package](https://pub.dev/packages/flutter_containers)
+
+To contribute to this package:
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a new Pull Request
+
+For issues and feature requests, please use the GitHub issue tracker.
