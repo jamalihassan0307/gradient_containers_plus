@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gradient_containers_plus/gradient_containers_plus.dart';
+import 'package:gradient_containers_plus/flutter_containers.dart';
 
 void main() => runApp(const MyApp());
 
@@ -132,7 +132,7 @@ class HomePage extends StatelessWidget {
             color: Colors.grey[200],
             borderRadius: BorderRadius.circular(8),
           ),
-          child: const Text(
+          child:  Text(
             '''Container(
   width: double.infinity,
   height: 150,
@@ -181,7 +181,7 @@ class HomePage extends StatelessWidget {
             style: TextStyle(
               fontFamily: 'monospace',
               fontSize: 12,
-              color: Colors.grey[800],
+              color: Colors.grey.shade800,
             ),
           ),
         ),
