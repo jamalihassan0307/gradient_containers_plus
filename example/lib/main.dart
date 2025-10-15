@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gradient_containers_plus/gradient_containers_plus/containers/animated_gradient_container.dart';
-import 'package:gradient_containers_plus/gradient_containers_plus/containers/glassmorphic_gradient_container.dart';
-import 'package:gradient_containers_plus/gradient_containers_plus/containers/neon_gradient_container.dart';
-import 'package:gradient_containers_plus/gradient_containers_plus/containers/radial_gradient_container.dart';
-import 'package:gradient_containers_plus/gradient_containers_plus/containers/sweep_gradient_container.dart';
-import 'package:gradient_containers_plus/gradient_containers_plus/containers/vertical_gradient_container.dart';
+import 'package:gradient_containers_plus/gradient_containers_plus.dart';
+import 'package:gradient_containers_plus/example/animated_color_change_example.dart';
+
+import 'animated_color_change_example.dart';
 
 void main() => runApp(const MyApp());
 
@@ -351,7 +349,66 @@ class HomePage extends StatelessWidget {
             ),
           ),
         ),
+        const SizedBox(height: 32),
+        const Text(
+          'Preset Gradients',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(height: 16),
+        const Text(
+          'Use pre-defined beautiful gradients with a single property.',
+          style: TextStyle(fontSize: 16),
+        ),
+        const SizedBox(height: 16),
+        VerticalGradientContainer(
+          gradient: GradientPresets.oceanBlue,
+          child: const Center(
+            child: Text(
+              'Ocean Blue Preset',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
+        VerticalGradientContainer(
+          gradient: GradientPresets.sunset,
+          borderRadius: BorderRadius.circular(20),
+          child: const Center(
+            child: Text(
+              'Sunset Preset',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
+        NeonGradientContainer(
+          gradient: GradientPresets.lushForest,
+          borderRadius: BorderRadius.circular(20),
+          child: const Center(
+            child: Text(
+              'Lush Forest (Neon)',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 32),
+        const AnimatedColorChangeExample(),
       ],
     );
   }
-} 
+}

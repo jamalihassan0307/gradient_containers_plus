@@ -36,6 +36,9 @@ class AnimatedGradientContainer extends StatefulWidget {
   /// The margin of the container
   final EdgeInsetsGeometry? margin;
 
+  /// Whether to animate the colors in addition to the gradient rotation.
+  final bool animateColors;
+
   const AnimatedGradientContainer({
     super.key,
     this.colors = const [Colors.purple, Colors.blue, Colors.purple],
@@ -49,6 +52,7 @@ class AnimatedGradientContainer extends StatefulWidget {
     this.height,
     this.padding,
     this.margin,
+    this.animateColors = true,
   });
 
   @override
@@ -59,7 +63,7 @@ class AnimatedGradientContainer extends StatefulWidget {
 class _AnimatedGradientContainerState extends State<AnimatedGradientContainer>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  late Animation<double> _animation;
+  late List<Animation<Color?>> _colorAnimations;
 
   @override
   void initState() {
@@ -67,9 +71,39 @@ class _AnimatedGradientContainerState extends State<AnimatedGradientContainer>
     _controller = AnimationController(
       duration: widget.duration,
       vsync: this,
-    )..repeat();
+    )..repeat(reverse: true);
 
-    _animation = Tween<double>(begin: 0.0, end: 1.0).animate(_controller);
+    _setupColorAnimations();
+  }
+
+  @override
+  void didUpdateWidget(covariant AnimatedGradientContainer oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.colors != oldWidget.colors || widget.duration != oldWidget.duration) {
+      _controller.duration = widget.duration;
+      _setupColorAnimations();
+      _controller
+        ..reset()
+        ..repeat(reverse: true);
+    }
+  }
+
+  void _setupColorAnimations() {
+    if (!widget.animateColors || widget.colors.length < 2) {
+      _colorAnimations = widget.colors.map((c) => AlwaysStoppedAnimation(c)).toList();
+      return;
+    }
+
+    final List<Color> beginColors = widget.colors;
+    final List<Color> endColors = List.from(widget.colors.reversed.toList());
+
+    _colorAnimations = List.generate(
+      beginColors.length,
+      (index) => ColorTween(
+        begin: beginColors[index],
+        end: endColors[index],
+      ).animate(_controller),
+    );
   }
 
   @override
@@ -81,8 +115,9 @@ class _AnimatedGradientContainerState extends State<AnimatedGradientContainer>
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-      animation: _animation,
+      animation: _controller,
       builder: (context, child) {
+        final gradientRotation = widget.animateColors ? Tween<double>(begin: 0.0, end: 1.0).animate(_controller) : const AlwaysStoppedAnimation(0.0);
         return Container(
           width: widget.width ?? double.infinity,
           height: widget.height ?? 150,
@@ -90,11 +125,11 @@ class _AnimatedGradientContainerState extends State<AnimatedGradientContainer>
           margin: widget.margin,
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: widget.colors,
+              colors: _colorAnimations.map((a) => a.value!).toList(),
               stops: widget.stops,
               begin: widget.begin,
               end: widget.end,
-              transform: GradientRotation(_animation.value * 2 * 3.14159),
+              transform: GradientRotation(gradientRotation.value * 2 * 3.14159),
             ),
             borderRadius: widget.borderRadius ?? BorderRadius.circular(12),
             boxShadow: [
@@ -105,32 +140,7 @@ class _AnimatedGradientContainerState extends State<AnimatedGradientContainer>
               ),
             ],
           ),
-          child: Stack(
-            children: [
-              ShaderMask(
-                shaderCallback: (bounds) {
-                  return LinearGradient(
-                    colors: [
-                      Colors.white.withAlpha(26),
-                      Colors.white.withAlpha(77),
-                      Colors.white.withAlpha(26),
-                    ],
-                    stops: const [0.0, 0.5, 1.0],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ).createShader(bounds);
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius:
-                        widget.borderRadius ?? BorderRadius.circular(12),
-                  ),
-                ),
-              ),
-              widget.child ?? const SizedBox(),
-            ],
-          ),
+          child: widget.child,
         );
       },
     );

@@ -21,6 +21,10 @@ class NeonGradientContainer extends GradientContainerBase {
   /// The glow spread
   final double glowSpread;
 
+  /// The gradient to be used for the container background.
+  /// If this is provided, the `colors`, `stops`, `begin`, and `end` properties will be ignored.
+  final Gradient? gradient;
+
   const NeonGradientContainer({
     super.key,
     super.child,
@@ -35,26 +39,43 @@ class NeonGradientContainer extends GradientContainerBase {
     this.end = Alignment.bottomRight,
     this.glowIntensity = 0.5,
     this.glowSpread = 2,
+    this.gradient,
   });
 
   @override
   BoxDecoration buildDecoration(BuildContext context) {
+    final gradientToUse = gradient ??
+        LinearGradient(
+          colors: colors,
+          stops: stops,
+          begin: begin,
+          end: end,
+        );
+
+    List<Color> shadowColors = [];
+    if (gradientToUse is LinearGradient) {
+      shadowColors = gradientToUse.colors;
+    } else if (gradientToUse is RadialGradient) {
+      shadowColors = gradientToUse.colors;
+    } else if (gradientToUse is SweepGradient) {
+      shadowColors = gradientToUse.colors;
+    } else {
+      shadowColors = colors;
+    }
+
     return BoxDecoration(
-      gradient: LinearGradient(
-        colors: colors,
-        stops: stops,
-        begin: begin,
-        end: end,
-      ),
+      gradient: gradientToUse,
       borderRadius: borderRadius ?? BorderRadius.circular(12),
       boxShadow: [
         BoxShadow(
-          color: colors[0].withAlpha((glowIntensity * 255).round()),
+          color: (shadowColors.isNotEmpty ? shadowColors[0] : colors[0])
+              .withAlpha((glowIntensity * 255).round()),
           blurRadius: 20,
           spreadRadius: glowSpread,
         ),
         BoxShadow(
-          color: colors[1].withAlpha((glowIntensity * 255).round()),
+          color: (shadowColors.length > 1 ? shadowColors[1] : colors[1])
+              .withAlpha((glowIntensity * 255).round()),
           blurRadius: 20,
           spreadRadius: glowSpread,
         ),

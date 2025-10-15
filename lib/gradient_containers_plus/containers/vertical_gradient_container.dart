@@ -15,6 +15,10 @@ class VerticalGradientContainer extends GradientContainerBase {
   /// The end alignment of the gradient
   final AlignmentGeometry end;
 
+  /// The gradient to be used for the container background.
+  /// If this is provided, the `colors`, `stops`, `begin`, and `end` properties will be ignored.
+  final Gradient? gradient;
+
   const VerticalGradientContainer({
     super.key,
     super.child,
@@ -27,17 +31,19 @@ class VerticalGradientContainer extends GradientContainerBase {
     this.stops,
     this.begin = Alignment.topLeft,
     this.end = Alignment.bottomRight,
+    this.gradient,
   });
 
   @override
   BoxDecoration buildDecoration(BuildContext context) {
     return BoxDecoration(
-      gradient: LinearGradient(
-        colors: colors,
-        stops: stops,
-        begin: begin,
-        end: end,
-      ),
+      gradient: gradient ??
+          LinearGradient(
+            colors: colors,
+            stops: stops,
+            begin: begin,
+            end: end,
+          ),
       borderRadius: borderRadius ?? BorderRadius.circular(12),
       boxShadow: [
         BoxShadow(
