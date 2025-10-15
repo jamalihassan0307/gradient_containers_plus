@@ -22,6 +22,8 @@ class ShapesAndInteractionsExample extends StatelessWidget {
         _buildInteractiveContainers(),
         const SizedBox(height: 24),
         _buildLiquidEffects(),
+        const SizedBox(height: 24),
+        _buildAmbientEffects(),
       ],
     );
   }
@@ -76,6 +78,129 @@ class ShapesAndInteractionsExample extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ],
+    );
+  }
+
+  Widget _buildAmbientEffects() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Ambient Light Effects',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(height: 16),
+        Row(
+          children: [
+            // Cyber Pulse Effect
+            Expanded(
+              child: AmbientLightContainer(
+                height: 120,
+                colors: const [
+                  Color(0xFF00F5FF),
+                  Color(0xFF00FFAB),
+                ],
+                ambientIntensity: 0.7,
+                spreadRadius: 25,
+                blurRadius: 35,
+                pulseScaleFactor: 1.3,
+                animationDuration: const Duration(seconds: 1),
+                child: const Center(
+                  child: Text(
+                    'Cyber Pulse',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(width: 16),
+            // Mystical Orb Effect
+            Expanded(
+              child: AmbientLightContainer(
+                height: 120,
+                shape: BoxShape.circle,
+                colors: const [
+                  Color(0xFFFF69B4),
+                  Color(0xFF8A2BE2),
+                ],
+                ambientIntensity: 0.6,
+                spreadRadius: 30,
+                blurRadius: 40,
+                pulseScaleFactor: 1.15,
+                animationDuration: const Duration(milliseconds: 1500),
+                child: const Center(
+                  child: Text(
+                    'Mystical',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 16),
+        // Sunset Glow Effect
+        AmbientLightContainer(
+          height: 100,
+          colors: const [
+            Color(0xFFFF8C00),
+            Color(0xFFFF0080),
+            Color(0xFFFF4500),
+          ],
+          borderRadius: BorderRadius.circular(20),
+          ambientIntensity: 0.5,
+          spreadRadius: 35,
+          blurRadius: 45,
+          isPulsing: false,
+          child: const Center(
+            child: Text(
+              'Sunset Glow',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
+        // Northern Lights Effect
+        AmbientLightContainer(
+          height: 100,
+          colors: const [
+            Color(0xFF80FF00),
+            Color(0xFF00FFFF),
+            Color(0xFF9370DB),
+          ],
+          borderRadius: BorderRadius.circular(15),
+          ambientIntensity: 0.6,
+          spreadRadius: 40,
+          blurRadius: 50,
+          animationDuration: const Duration(seconds: 3),
+          pulseScaleFactor: 1.4,
+          child: const Center(
+            child: Text(
+              'Northern Lights',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
         ),
       ],
     );

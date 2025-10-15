@@ -10,4 +10,5 @@ export 'gradient_containers_plus/containers/neon_gradient_container.dart';
 export 'gradient_containers_plus/containers/radial_gradient_container.dart';
 export 'gradient_containers_plus/containers/sweep_gradient_container.dart';
 export 'gradient_containers_plus/containers/liquid_press_container.dart';
+export 'gradient_containers_plus/containers/ambient_light_container.dart';
 export 'gradient_containers_plus/presets/gradient_presets.dart';
