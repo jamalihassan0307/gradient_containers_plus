@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:gradient_containers_plus/gradient_containers_plus.dart';
+import 'package:gradient_containers_plus/gradient_containers_plus/containers/vertical_gradient_container.dart';
 
 void main() {
   group('Gradient Containers Plus Tests', () {

@@ -3,6 +3,7 @@ import 'components/basic_gradients.dart';
 import 'components/special_effects.dart';
 import 'components/animated_gradients.dart';
 import 'components/preset_gradients.dart';
+import 'components/advanced_gradients.dart';
 
 void main() => runApp(const MyApp());
 

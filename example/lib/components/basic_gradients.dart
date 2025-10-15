@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gradient_containers_plus/gradient_containers_plus.dart';
+import 'package:gradient_containers_plus/gradient_containers_plus/containers/vertical_gradient_container.dart';
 
 class BasicGradientsSection extends StatelessWidget {
   const BasicGradientsSection({super.key});
