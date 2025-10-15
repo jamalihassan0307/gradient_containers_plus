@@ -33,6 +33,9 @@ class GlassmorphicGradientContainer extends GradientContainerBase {
     super.height,
     super.padding,
     super.margin,
+    super.shape,
+    super.onTap,
+    super.mouseCursor,
     this.colors = const [Colors.white, Colors.white],
     this.stops,
     this.begin = Alignment.topLeft,
@@ -44,37 +47,58 @@ class GlassmorphicGradientContainer extends GradientContainerBase {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: borderRadius ?? BorderRadius.circular(12),
-      child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: blurSigma, sigmaY: blurSigma),
-        child: Container(
-          width: width ?? double.infinity,
-          height: height ?? 150,
-          padding: padding,
-          margin: margin,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: colors.map((color) => color.withAlpha(51)).toList(),
-              stops: stops,
-              begin: begin,
-              end: end,
-            ),
+    final container = shape == BoxShape.circle
+        ? ClipOval(
+            child: _buildGlassContent(context),
+          )
+        : ClipRRect(
             borderRadius: borderRadius ?? BorderRadius.circular(12),
-            border: Border.all(
-              color: borderColor.withAlpha(51),
-              width: borderWidth,
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withAlpha(26),
-                blurRadius: 10,
-                offset: const Offset(0, 4),
-              ),
-            ],
-          ),
-          child: child,
+            child: _buildGlassContent(context),
+          );
+
+    if (onTap != null) {
+      return MouseRegion(
+        cursor: mouseCursor ?? SystemMouseCursors.click,
+        child: GestureDetector(
+          onTap: onTap,
+          child: container,
         ),
+      );
+    }
+
+    return container;
+  }
+
+  Widget _buildGlassContent(BuildContext context) {
+    return BackdropFilter(
+      filter: ImageFilter.blur(sigmaX: blurSigma, sigmaY: blurSigma),
+      child: Container(
+        width: width ?? double.infinity,
+        height: height ?? 150,
+        padding: padding,
+        margin: margin,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: colors.map((color) => color.withAlpha(51)).toList(),
+            stops: stops,
+            begin: begin,
+            end: end,
+          ),
+          shape: shape,
+          borderRadius: shape == BoxShape.rectangle ? (borderRadius ?? BorderRadius.circular(12)) : null,
+          border: Border.all(
+            color: borderColor.withAlpha(51),
+            width: borderWidth,
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withAlpha(26),
+              blurRadius: 10,
+              offset: const Offset(0, 4),
+            ),
+          ],
+        ),
+        child: child,
       ),
     );
   }

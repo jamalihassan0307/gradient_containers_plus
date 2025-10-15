@@ -31,7 +31,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  gradient_containers_plus: ^1.1.0
+  gradient_containers_plus: ^1.2.0
 ```
 
 ## Usage Examples
@@ -130,7 +130,36 @@ GlassmorphicGradientContainer(
 )
 ```
 
-### 6. Neon Gradient Container
+### 6. Shape & Interaction Examples
+
+Containers can now be circular and interactive:
+
+```dart
+// Circular container
+LinearGradientContainer(
+  height: 150,
+  shape: BoxShape.circle,
+  colors: const [Colors.blue, Colors.purple],
+  child: const Center(
+    child: Text('Circle'),
+  ),
+)
+
+// Interactive container with tap handling
+LinearGradientContainer(
+  height: 100,
+  colors: const [Colors.green, Colors.teal],
+  onTap: () {
+    print('Container tapped!');
+  },
+  mouseCursor: SystemMouseCursors.click,
+  child: const Center(
+    child: Text('Tap Me!'),
+  ),
+)
+```
+
+### 7. Neon Gradient Container
 <div align="center">
   <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/main/screenshots/neon_gradient_container.png" width="400" alt="Neon Glow"/>
   <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/main/screenshots/custom_neon_gradient.png" width="400" alt="Custom Neon Glow"/>

@@ -29,6 +29,9 @@ class GradientBorderContainer extends GradientContainerBase {
     super.height,
     super.padding,
     super.margin,
+    super.shape,
+    super.onTap,
+    super.mouseCursor,
     this.colors = const [Colors.blue, Colors.purple],
     this.stops,
     this.begin = Alignment.topLeft,
@@ -39,7 +42,7 @@ class GradientBorderContainer extends GradientContainerBase {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    final container = Container(
       width: width ?? double.infinity,
       height: height ?? 150,
       padding: padding,
@@ -51,21 +54,37 @@ class GradientBorderContainer extends GradientContainerBase {
           begin: begin,
           end: end,
         ),
-        borderRadius: borderRadius ?? BorderRadius.circular(12),
+        shape: shape,
+        borderRadius: shape == BoxShape.rectangle ? (borderRadius ?? BorderRadius.circular(12)) : null,
       ),
       child: Container(
         margin: EdgeInsets.all(borderWidth),
         decoration: BoxDecoration(
           color: backgroundColor ?? Colors.transparent,
-          borderRadius: borderRadius != null
-              ? BorderRadius.circular(
-                  borderRadius!.topLeft.x - borderWidth,
-                )
-              : BorderRadius.circular(10),
+          shape: shape,
+          borderRadius: shape == BoxShape.rectangle 
+              ? (borderRadius != null
+                  ? BorderRadius.circular(
+                      borderRadius!.topLeft.x - borderWidth,
+                    )
+                  : BorderRadius.circular(10))
+              : null,
         ),
         child: child,
       ),
     );
+
+    if (onTap != null) {
+      return MouseRegion(
+        cursor: mouseCursor ?? SystemMouseCursors.click,
+        child: GestureDetector(
+          onTap: onTap,
+          child: container,
+        ),
+      );
+    }
+
+    return container;
   }
 
   @override

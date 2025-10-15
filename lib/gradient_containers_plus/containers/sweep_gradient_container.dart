@@ -26,6 +26,9 @@ class SweepGradientContainer extends GradientContainerBase {
     super.height,
     super.padding,
     super.margin,
+    super.shape,
+    super.onTap,
+    super.mouseCursor,
     this.colors = const [Colors.green, Colors.teal, Colors.blue],
     this.stops,
     this.center = Alignment.center,
@@ -43,7 +46,8 @@ class SweepGradientContainer extends GradientContainerBase {
         startAngle: startAngle,
         endAngle: endAngle,
       ),
-      borderRadius: borderRadius ?? BorderRadius.circular(12),
+      shape: shape,
+      borderRadius: shape == BoxShape.rectangle ? (borderRadius ?? BorderRadius.circular(12)) : null,
       boxShadow: [
         BoxShadow(
           color: Colors.black.withAlpha(51),

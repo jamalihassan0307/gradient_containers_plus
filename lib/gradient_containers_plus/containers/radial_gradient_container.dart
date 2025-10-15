@@ -23,6 +23,9 @@ class RadialGradientContainer extends GradientContainerBase {
     super.height,
     super.padding,
     super.margin,
+    super.shape,
+    super.onTap,
+    super.mouseCursor,
     this.colors = const [Colors.orange, Colors.red],
     this.stops,
     this.center = Alignment.center,
@@ -38,7 +41,8 @@ class RadialGradientContainer extends GradientContainerBase {
         center: center,
         radius: radius,
       ),
-      borderRadius: borderRadius ?? BorderRadius.circular(12),
+      shape: shape,
+      borderRadius: shape == BoxShape.rectangle ? (borderRadius ?? BorderRadius.circular(12)) : null,
       boxShadow: [
         BoxShadow(
           color: Colors.black.withAlpha(77),

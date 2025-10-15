@@ -26,6 +26,8 @@ class LinearGradientContainer extends GradientContainerBase {
     super.width,
     super.height,
     super.padding,
+    super.onTap,
+    super.shape,
     super.margin,
     this.colors = const [Colors.blue, Colors.purple],
     this.stops,
@@ -33,6 +35,21 @@ class LinearGradientContainer extends GradientContainerBase {
     this.end = Alignment.bottomRight,
     this.gradient,
   });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: width,
+        height: height,
+        margin: margin,
+        padding: padding,
+        decoration: buildDecoration(context),
+        child: child,
+      ),
+    );
+  }
 
   @override
   BoxDecoration buildDecoration(BuildContext context) {

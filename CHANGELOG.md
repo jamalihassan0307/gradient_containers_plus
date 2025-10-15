@@ -1,3 +1,12 @@
+## 1.2.0
+
+* Added shape customization support with `BoxShape.circle` option
+* Added `onTap` callback support for interactive containers
+* Added `mouseCursor` property for hover effects
+* Updated all container widgets to support circular shape
+* Added new examples showcasing shapes and interactions
+* Enhanced documentation with interactive container examples
+
 ## 1.1.0
 
 * Fixed formatting issues across all files

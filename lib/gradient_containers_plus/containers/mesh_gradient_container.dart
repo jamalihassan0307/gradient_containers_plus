@@ -32,6 +32,9 @@ class MeshGradientContainer extends GradientContainerBase {
     super.height,
     super.padding,
     super.margin,
+    super.shape,
+    super.onTap,
+    super.mouseCursor,
     this.colors = const [Colors.blue, Colors.purple, Colors.pink, Colors.orange],
     this.blendMode = BlendMode.srcOver,
     this.horizontalCells = 8,
@@ -43,7 +46,8 @@ class MeshGradientContainer extends GradientContainerBase {
   @override
   BoxDecoration buildDecoration(BuildContext context) {
     return BoxDecoration(
-      borderRadius: borderRadius ?? BorderRadius.circular(12),
+      shape: shape,
+      borderRadius: shape == BoxShape.rectangle ? (borderRadius ?? BorderRadius.circular(12)) : null,
       boxShadow: [
         BoxShadow(
           color: Colors.black.withAlpha(51),
@@ -56,14 +60,28 @@ class MeshGradientContainer extends GradientContainerBase {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    final container = Container(
       width: width ?? double.infinity,
       height: height ?? 150,
       padding: padding,
       margin: margin,
       decoration: buildDecoration(context),
-      child: ClipRRect(
-        borderRadius: borderRadius ?? BorderRadius.circular(12),
+      child: shape == BoxShape.circle 
+        ? ClipOval(
+            child: CustomPaint(
+              painter: _MeshGradientPainter(
+                colors: colors,
+                blendMode: blendMode,
+                horizontalCells: horizontalCells,
+                verticalCells: verticalCells,
+                frequency: frequency,
+                phase: phase,
+              ),
+              child: child,
+            ),
+          )
+        : ClipRRect(
+            borderRadius: borderRadius ?? BorderRadius.circular(12),
         child: CustomPaint(
           painter: _MeshGradientPainter(
             colors: colors,
@@ -77,6 +95,18 @@ class MeshGradientContainer extends GradientContainerBase {
         ),
       ),
     );
+
+    if (onTap != null) {
+      return MouseRegion(
+        cursor: mouseCursor ?? SystemMouseCursors.click,
+        child: GestureDetector(
+          onTap: onTap,
+          child: container,
+        ),
+      );
+    }
+
+    return container;
   }
 }
 

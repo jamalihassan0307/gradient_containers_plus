@@ -19,7 +19,9 @@ void main() {
 
       expect(find.byType(VerticalGradientContainer), findsOneWidget);
       final container = tester.widget<VerticalGradientContainer>(find.byType(VerticalGradientContainer));
-      expect(container.buildDecoration(tester.element(find.byType(VerticalGradientContainer))).boxShadow, isNotEmpty);
+      final boxShadow = container.buildDecoration(tester.element(find.byType(VerticalGradientContainer))).boxShadow;
+      expect(boxShadow != null, true);
+      expect(boxShadow!.isNotEmpty, true);
     });
 
     testWidgets('renders radial gradient container', (WidgetTester tester) async {
@@ -36,7 +38,9 @@ void main() {
 
       expect(find.byType(RadialGradientContainer), findsOneWidget);
       final container = tester.widget<RadialGradientContainer>(find.byType(RadialGradientContainer));
-      expect(container.buildDecoration(tester.element(find.byType(RadialGradientContainer))).boxShadow, isNotEmpty);
+      final boxShadow = container.buildDecoration(tester.element(find.byType(RadialGradientContainer))).boxShadow;
+      expect(boxShadow != null, true);
+      expect(boxShadow!.isNotEmpty, true);
     });
 
     testWidgets('renders sweep gradient container', (WidgetTester tester) async {
@@ -53,7 +57,9 @@ void main() {
 
       expect(find.byType(SweepGradientContainer), findsOneWidget);
       final container = tester.widget<SweepGradientContainer>(find.byType(SweepGradientContainer));
-      expect(container.buildDecoration(tester.element(find.byType(SweepGradientContainer))).boxShadow, isNotEmpty);
+      final boxShadow = container.buildDecoration(tester.element(find.byType(SweepGradientContainer))).boxShadow;
+      expect(boxShadow != null, true);
+      expect(boxShadow!.isNotEmpty, true);
     });
 
     testWidgets('renders animated gradient container', (WidgetTester tester) async {
@@ -87,7 +93,9 @@ void main() {
       expect(find.byType(GlassmorphicGradientContainer), findsOneWidget);
       expect(find.byType(BackdropFilter), findsOneWidget);
       final container = tester.widget<GlassmorphicGradientContainer>(find.byType(GlassmorphicGradientContainer));
-      expect(container.buildDecoration(tester.element(find.byType(GlassmorphicGradientContainer))).boxShadow, isNotEmpty);
+      final boxShadow = container.buildDecoration(tester.element(find.byType(GlassmorphicGradientContainer))).boxShadow;
+      expect(boxShadow != null, true);
+      expect(boxShadow!.isNotEmpty, true);
     });
 
     testWidgets('renders neon gradient container', (WidgetTester tester) async {
@@ -105,7 +113,8 @@ void main() {
       expect(find.byType(NeonGradientContainer), findsOneWidget);
       final container = tester.widget<NeonGradientContainer>(find.byType(NeonGradientContainer));
       final decoration = container.buildDecoration(tester.element(find.byType(NeonGradientContainer)));
-      expect(decoration.boxShadow!.length, greaterThan(1));
+      expect(decoration.boxShadow != null, true);
+      expect(decoration.boxShadow!.length > 1, true);
     });
   });
 }
