@@ -44,7 +44,8 @@ class LinearGradientContainer extends GradientContainerBase {
             begin: begin,
             end: end,
           ),
-      borderRadius: borderRadius ?? BorderRadius.circular(12),
+      shape: shape,
+      borderRadius: shape == BoxShape.rectangle ? borderRadius ?? BorderRadius.circular(12) : null,
       boxShadow: [
         BoxShadow(
           color: Colors.black.withAlpha(51),

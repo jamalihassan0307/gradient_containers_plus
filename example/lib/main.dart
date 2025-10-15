@@ -4,6 +4,7 @@ import 'components/special_effects.dart';
 import 'components/animated_gradients.dart';
 import 'components/preset_gradients.dart';
 import 'components/advanced_gradients.dart';
+import 'components/shapes_and_interactions.dart';
 
 void main() => runApp(const MyApp());
 
@@ -61,6 +62,8 @@ class HomePage extends StatelessWidget {
               AnimatedGradientsSection(),
               SizedBox(height: 32),
               PresetGradientsSection(),
+              SizedBox(height: 32),
+              ShapesAndInteractionsExample(),
             ],
           ),
         ),
