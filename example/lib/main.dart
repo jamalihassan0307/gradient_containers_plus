@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gradient_containers_plus/gradient_containers_plus.dart';
-import 'package:gradient_containers_plus/example/animated_color_change_example.dart';
-
-import 'animated_color_change_example.dart';
+import 'components/basic_gradients.dart';
+import 'components/special_effects.dart';
+import 'components/animated_gradients.dart';
+import 'components/preset_gradients.dart';
 
 void main() => runApp(const MyApp());
 
@@ -34,37 +34,49 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
+              Text(
                 'Beautiful Gradient Containers',
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 16),
-              const Text(
+              SizedBox(height: 16),
+              Text(
                 'This package provides various gradient container templates with advanced features like patterns, shadows, and effects.',
                 style: TextStyle(fontSize: 16),
               ),
-              const SizedBox(height: 24),
-              _buildExamples(),
+              SizedBox(height: 32),
+              BasicGradientsSection(),
+              SizedBox(height: 32),
+              SpecialEffectsSection(),
+              SizedBox(height: 32),
+              AnimatedGradientsSection(),
+              SizedBox(height: 32),
+              PresetGradientsSection(),
             ],
           ),
         ),
       ),
     );
   }
-
-  Widget _buildExamples() {
-    return Column(
+}
+    return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        BasicGradientsSection(),
+        SizedBox(height: 32),
+        SpecialEffectsSection(),
+        SizedBox(height: 32),
+        AnimatedGradientsSection(),
+        SizedBox(height: 32),
+        PresetGradientsSection(),
         const Text(
           'Vertical Gradient Container',
           style: TextStyle(

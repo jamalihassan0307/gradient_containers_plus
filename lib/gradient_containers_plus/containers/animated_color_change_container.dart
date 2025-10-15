@@ -100,8 +100,6 @@ class _AnimatedColorChangeContainerState extends State<AnimatedColorChangeContai
         end: safeEndColors[index],
       ).animate(_controller);
     });
-
-    _currentColors = safeBeginColors;
   }
 
   List<Color> _padColorList(List<Color> colors, int length) {
