@@ -2,7 +2,7 @@
 
 <div align="center">
   <kbd>
-    <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/main/image/image.jpg" width="200" alt="Jam Ali Hassan"/>
+    <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/refs/heads/main/banner/banner.png" width="200" alt="Jam Ali Hassan"/>
   </kbd>
   <br/>
   <br/>

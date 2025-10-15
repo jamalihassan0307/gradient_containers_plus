@@ -146,7 +146,7 @@ class _AnimatedColorChangeContainerState extends State<AnimatedColorChangeContai
             borderRadius: widget.borderRadius ?? BorderRadius.circular(12),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.2),
+                color: Colors.black.withValues(alpha: 0.2),
                 blurRadius: 8,
                 offset: const Offset(0, 4),
               ),

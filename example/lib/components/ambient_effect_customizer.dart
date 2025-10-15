@@ -159,7 +159,7 @@ class _AmbientEffectCustomizerState extends State<AmbientEffectCustomizer> {
                                     'Glow Width Multiplier',
                                     style: TextStyle(fontWeight: FontWeight.bold),
                                   ),
-                                  Text(tempGlowMultiplier.toStringAsFixed(2) + 'x'),
+                                  Text('${tempGlowMultiplier.toStringAsFixed(2)}x'),
                                 ],
                               ),
                               Slider(
@@ -221,6 +221,7 @@ class _AmbientEffectCustomizerState extends State<AmbientEffectCustomizer> {
         _glowWidthMultiplier = tempGlowMultiplier;
       });
       
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Effect updated'),

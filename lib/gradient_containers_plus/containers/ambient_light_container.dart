@@ -486,9 +486,9 @@ class _AmbientOuterEffectPainter extends CustomPainter {
 
     // Create the animated gradient
     final List<Color> effectiveColors = gradientColors
-        .map((color) => color.withOpacity(intensity))
+        .map((color) => color.withValues(alpha: intensity))
         .toList()
-      ..add(gradientColors.first.withOpacity(intensity)); // Add the first color again to close the loop
+      ..add(gradientColors.first.withValues(alpha: intensity)); // Add the first color again to close the loop
     
     final SweepGradient sweepGradient = SweepGradient(
       center: Alignment.center,
@@ -565,9 +565,9 @@ class _AnimatedGradientStrokePainter extends CustomPainter {
     
     // Create the gradient with proper opacity
     final List<Color> effectiveColors = gradientColors
-        .map((color) => color.withOpacity(intensity))
+        .map((color) => color.withValues(alpha: intensity))
         .toList()
-      ..add(gradientColors.first.withOpacity(intensity));
+      ..add(gradientColors.first.withValues(alpha: intensity));
     
     final SweepGradient sweepGradient = SweepGradient(
       center: Alignment.center,
