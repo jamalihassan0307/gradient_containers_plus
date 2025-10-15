@@ -126,43 +126,102 @@ class _AmbientLightContainerState extends State<AmbientLightContainer>
   void _showCustomizer(BuildContext context) {
     showModalBottomSheet(
       context: context,
+      backgroundColor: Colors.transparent,
       isScrollControlled: true,
-      builder: (context) {
-        return DraggableScrollableSheet(
-          initialChildSize: 0.6,
-          minChildSize: 0.4,
-          maxChildSize: 0.9,
-          expand: false,
-          builder: (context, scrollController) {
-            return SingleChildScrollView(
-              controller: scrollController,
-              child: AmbientLightCustomizer(
-                initialColors: widget.colors,
-                initialIntensity: widget.ambientIntensity,
-                initialSpread: widget.spreadRadius,
-                initialBlur: widget.blurRadius,
-                initialPulsing: widget.isPulsing,
-                initialPulseScale: widget.pulseScaleFactor,
-                initialDuration: widget.animationDuration,
-                onSettingsChanged: (settings) {
-                  if (mounted) {
-                    setState(() {
-                      // Recreate the animations with new settings
-                      _controller.duration = settings.duration;
-                      _setupAnimations();
-                      if (settings.isPulsing && !_controller.isAnimating) {
-                        _controller.repeat(reverse: true);
-                      } else if (!settings.isPulsing && _controller.isAnimating) {
-                        _controller.stop();
-                      }
-                    });
-                  }
-                },
+      constraints: BoxConstraints(
+        maxHeight: MediaQuery.of(context).size.height * 0.85,
+      ),
+      builder: (context) => Container(
+        padding: EdgeInsets.only(
+          bottom: MediaQuery.of(context).viewInsets.bottom + 16,
+        ),
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+        ),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const SizedBox(height: 8),
+              Container(
+                width: 40,
+                height: 4,
+                decoration: BoxDecoration(
+                  color: Colors.grey[300],
+                  borderRadius: BorderRadius.circular(2),
+                ),
               ),
-            );
-          },
-        );
-      },
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+                    const Text(
+                      'Customize Ambient Light',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    AmbientLightCustomizer(
+                      initialColors: widget.colors,
+                      initialIntensity: widget.ambientIntensity,
+                      initialSpread: widget.spreadRadius,
+                      initialBlur: widget.blurRadius,
+                      initialPulsing: widget.isPulsing,
+                      initialPulseScale: widget.pulseScaleFactor,
+                      initialDuration: widget.animationDuration,
+                      onSettingsChanged: (settings) {
+                        if (mounted) {
+                          setState(() {
+                            _controller.duration = settings.duration;
+                            _setupAnimations();
+                            if (settings.isPulsing && !_controller.isAnimating) {
+                              _controller.repeat(reverse: true);
+                            } else if (!settings.isPulsing && _controller.isAnimating) {
+                              _controller.stop();
+                            }
+                          });
+                        }
+                      },
+                    ),
+                    const SizedBox(height: 16),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: TextButton(
+                            onPressed: () => Navigator.pop(context),
+                            child: const Text('Cancel'),
+                          ),
+                        ),
+                        const SizedBox(width: 16),
+                        Expanded(
+                          child: FilledButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text('Changes applied successfully'),
+                                  duration: Duration(seconds: 2),
+                                ),
+                              );
+                            },
+                            style: FilledButton.styleFrom(
+                              padding: const EdgeInsets.symmetric(vertical: 16),
+                            ),
+                            child: const Text('Apply'),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 
@@ -171,14 +230,7 @@ class _AmbientLightContainerState extends State<AmbientLightContainer>
     return MouseRegion(
       cursor: widget.mouseCursor ?? SystemMouseCursors.click,
       child: GestureDetector(
-        onTap: () {
-          if (widget.onTap != null) {
-            widget.onTap!();
-          } else {
-            _showCustomizer(context);
-          }
-        },
-        onLongPress: () => _showCustomizer(context),
+        onTap: widget.onTap ?? () => _showCustomizer(context),
         child: AnimatedBuilder(
           animation: _controller,
           builder: (context, child) {
@@ -198,17 +250,7 @@ class _AmbientLightContainerState extends State<AmbientLightContainer>
                 ),
                 child: Container(
                   padding: widget.padding,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: widget.colors,
-                      transform: GradientRotation(_rotationAnimation.value),
-                    ),
-                    borderRadius: widget.shape == BoxShape.rectangle
-                        ? widget.borderRadius ?? BorderRadius.circular(12)
-                        : null,
-                    shape: widget.shape,
-                  ),
-                  
+                  child: widget.child,
                 ),
               ),
             );

@@ -97,6 +97,7 @@ class _AmbientEffectCustomizerState extends State<AmbientEffectCustomizer> {
                       'Customize Ambient Light',
                       style: TextStyle(
                         fontSize: 18,
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -172,7 +173,7 @@ class _AmbientEffectCustomizerState extends State<AmbientEffectCustomizer> {
           Text(
             'Customize',
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontSize: 18,
               fontWeight: FontWeight.bold,
             ),
@@ -181,7 +182,7 @@ class _AmbientEffectCustomizerState extends State<AmbientEffectCustomizer> {
           Text(
             'Tap to edit',
             style: TextStyle(
-              color: Colors.white70,
+              color: Colors.black,
               fontSize: 12,
             ),
           ),
