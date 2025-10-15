@@ -1,5 +1,6 @@
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
+import 'package:gradient_containers_plus/gradient_containers_plus/containers/ambient_light_customizer.dart';
 
 /// A container that creates an ambient light effect with customizable glow
 class AmbientLightContainer extends StatefulWidget {
@@ -122,12 +123,62 @@ class _AmbientLightContainerState extends State<AmbientLightContainer>
     );
   }
 
+  void _showCustomizer(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (context) {
+        return DraggableScrollableSheet(
+          initialChildSize: 0.6,
+          minChildSize: 0.4,
+          maxChildSize: 0.9,
+          expand: false,
+          builder: (context, scrollController) {
+            return SingleChildScrollView(
+              controller: scrollController,
+              child: AmbientLightCustomizer(
+                initialColors: widget.colors,
+                initialIntensity: widget.ambientIntensity,
+                initialSpread: widget.spreadRadius,
+                initialBlur: widget.blurRadius,
+                initialPulsing: widget.isPulsing,
+                initialPulseScale: widget.pulseScaleFactor,
+                initialDuration: widget.animationDuration,
+                onSettingsChanged: (settings) {
+                  if (mounted) {
+                    setState(() {
+                      // Recreate the animations with new settings
+                      _controller.duration = settings.duration;
+                      _setupAnimations();
+                      if (settings.isPulsing && !_controller.isAnimating) {
+                        _controller.repeat(reverse: true);
+                      } else if (!settings.isPulsing && _controller.isAnimating) {
+                        _controller.stop();
+                      }
+                    });
+                  }
+                },
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
       cursor: widget.mouseCursor ?? SystemMouseCursors.click,
       child: GestureDetector(
-        onTap: widget.onTap,
+        onTap: () {
+          if (widget.onTap != null) {
+            widget.onTap!();
+          } else {
+            _showCustomizer(context);
+          }
+        },
+        onLongPress: () => _showCustomizer(context),
         child: AnimatedBuilder(
           animation: _controller,
           builder: (context, child) {
@@ -157,7 +208,7 @@ class _AmbientLightContainerState extends State<AmbientLightContainer>
                         : null,
                     shape: widget.shape,
                   ),
-                  child: widget.child,
+                  
                 ),
               ),
             );

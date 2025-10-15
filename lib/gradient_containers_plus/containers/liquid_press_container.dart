@@ -199,10 +199,14 @@ class _LiquidPainter extends CustomPainter {
     final rect = Offset.zero & size;
     final paint = Paint()..style = PaintingStyle.fill;
 
-    // Create gradient shader
+    // Create gradient shader with proper stops
+    List<double> stops = List.generate(
+      colors.length,
+      (index) => index / (colors.length - 1),
+    );
     paint.shader = LinearGradient(
       colors: colors,
-      stops: [0.0, animationValue],
+      stops: stops,
       transform: GradientRotation(pressAnimation * 2 * 3.14159),
     ).createShader(rect);
 

@@ -1,8 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:gradient_containers_plus/gradient_containers_plus.dart';
+import 'ambient_effect_customizer.dart';
 
-class ShapesAndInteractionsExample extends StatelessWidget {
+class ShapesAndInteractionsExample extends StatefulWidget {
   const ShapesAndInteractionsExample({super.key});
+
+  @override
+  State<ShapesAndInteractionsExample> createState() => _ShapesAndInteractionsExampleState();
+}
+
+class _ShapesAndInteractionsExampleState extends State<ShapesAndInteractionsExample> {
+  void _showCustomizationInfo() {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Tap to customize effects'),
+        duration: Duration(seconds: 2),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -87,39 +102,35 @@ class ShapesAndInteractionsExample extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          'Ambient Light Effects',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Text(
+              'Ambient Light Effects',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            IconButton(
+              icon: const Icon(Icons.info_outline),
+              onPressed: _showCustomizationInfo,
+            ),
+          ],
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 24),
         Row(
           children: [
-            // Cyber Pulse Effect
+            // Interactive Customization
             Expanded(
-              child: AmbientLightContainer(
-                height: 120,
-                colors: const [
-                  Color(0xFF00F5FF),
-                  Color(0xFF00FFAB),
-                ],
-                ambientIntensity: 0.7,
-                spreadRadius: 25,
-                blurRadius: 35,
-                pulseScaleFactor: 1.3,
-                animationDuration: const Duration(seconds: 1),
-                child: const Center(
-                  child: Text(
-                    'Cyber Pulse',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
+              child: AmbientEffectCustomizer(
+                initialColors: const [Color(0xFF00F5FF), Color(0xFF00FFAB)],
+                initialIntensity: 0.7,
+                initialSpread: 25.0,
+                initialBlur: 35.0,
+                initialPulsing: true,
+                initialPulseScale: 1.3,
+                initialDuration: const Duration(seconds: 1),
               ),
             ),
             const SizedBox(width: 16),
@@ -151,7 +162,7 @@ class ShapesAndInteractionsExample extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 24),
         // Sunset Glow Effect
         AmbientLightContainer(
           height: 100,
@@ -176,7 +187,7 @@ class ShapesAndInteractionsExample extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 24),
         // Northern Lights Effect
         AmbientLightContainer(
           height: 100,
