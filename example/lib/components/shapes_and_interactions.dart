@@ -10,7 +10,7 @@ class ShapesAndInteractionsExample extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          'Shapes & Interactions',
+          'Interactive Gradients',
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
@@ -20,6 +20,8 @@ class ShapesAndInteractionsExample extends StatelessWidget {
         _buildShapes(),
         const SizedBox(height: 24),
         _buildInteractiveContainers(),
+        const SizedBox(height: 24),
+        _buildLiquidEffects(),
       ],
     );
   }
@@ -74,6 +76,83 @@ class ShapesAndInteractionsExample extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ],
+    );
+  }
+
+  Widget _buildLiquidEffects() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Liquid Press Effects',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(height: 16),
+        Row(
+          children: [
+            Expanded(
+              child: LiquidPressContainer(
+                height: 100,
+                shape: BoxShape.circle,
+                colors: const [Colors.indigo, Colors.blue],
+                child: const Center(
+                  child: Text(
+                    'Press Me',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(width: 16),
+            Expanded(
+              child: LiquidPressContainer(
+                height: 100,
+                colors: const [Colors.purple, Colors.deepPurple],
+                curve: Curves.easeInOutBack,
+                animationDuration: const Duration(milliseconds: 800),
+                child: const Center(
+                  child: Text(
+                    'Slow Effect',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 16),
+        LiquidPressContainer(
+          height: 100,
+          colors: const [Colors.orange, Colors.deepOrange, Colors.red],
+          borderRadius: BorderRadius.circular(20),
+          springDescription: const SpringDescription(
+            mass: 1.0,
+            stiffness: 800.0,
+            damping: 15.0,
+          ),
+          child: const Center(
+            child: Text(
+              'Bouncy Spring Effect',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
         ),
       ],
     );

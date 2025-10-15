@@ -1,3 +1,11 @@
+## 1.3.0
+
+* Added new `LiquidPressContainer` with interactive liquid animation effect
+* Customizable spring physics for liquid animations
+* Support for circular and rectangular shapes in liquid effects
+* Multiple liquid animation presets (normal, slow, bouncy)
+* Enhanced examples with liquid press effects showcase
+
 ## 1.2.0
 
 * Added shape customization support with `BoxShape.circle` option
