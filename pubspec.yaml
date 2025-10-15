@@ -1,8 +1,13 @@
 name: gradient_containers_plus
 description: A Flutter package providing beautiful, customizable gradient containers with advanced features like animations, patterns, and effects.
-version: 1.1.1
+version: 1.1.2
 
 homepage: https://github.com/jamalihassan0307/gradient_containers_plus
+repository: https://github.com/jamalihassan0307/gradient_containers_plus
+
+screenshots:
+  - description: Gradient Containers Plus package banner image
+    path: banner/banner.png
 
 environment:
   sdk: ">=3.5.3 <4.0.0"

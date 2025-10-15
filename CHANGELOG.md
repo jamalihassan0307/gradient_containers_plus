@@ -1,5 +1,16 @@
 
 
+## 1.1.2
+
+* Enhanced examples with liquid press effects showcase
+* Added shape customization support with `BoxShape.circle` option
+* Added `onTap` callback support for interactive containers
+* Added `mouseCursor` property for hover effects
+* Updated all container widgets to support circular shape
+* Added new examples showcasing shapes and interactions
+* Enhanced documentation with interactive container examples
+
+
 ## 1.1.1
 
 * Added new `AmbientLightContainer` with stunning ambient glow effects
@@ -12,13 +23,7 @@
 * Customizable spring physics for liquid animations
 * Support for circular and rectangular shapes in liquid effects
 * Multiple liquid animation presets (normal, slow, bouncy)
-* Enhanced examples with liquid press effects showcase
-* Added shape customization support with `BoxShape.circle` option
-* Added `onTap` callback support for interactive containers
-* Added `mouseCursor` property for hover effects
-* Updated all container widgets to support circular shape
-* Added new examples showcasing shapes and interactions
-* Enhanced documentation with interactive container examples
+
 
 ## 1.1.0
 

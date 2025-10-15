@@ -31,7 +31,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  gradient_containers_plus: ^1.1.1
+  gradient_containers_plus: ^1.1.2
 ```
 
 ## Usage Examples
@@ -97,7 +97,7 @@ AnimatedGradientContainer(
 <div align="center">
   <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/refs/heads/main/screenshots/color_change_gradient.PNG" width="400" alt="Color Change Gradient"/>
   <br/>
-  <img src="screenshots/color_change_gradient.gif" width="400" alt="Color Change Gradient Animation"/>
+  <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/refs/heads/main/screenshots/color_change_gradient.gif" width="400" alt="Color Change Gradient Animation"/>
 </div>
 
 ```dart
@@ -161,7 +161,7 @@ NeonGradientContainer(
 <div align="center">
   <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/refs/heads/main/screenshots/liquid_press_effects.PNG" width="400" alt="Liquid Press Effect"/>
   <br/>
-  <img src="screenshots/liquid_press_effects.gif" width="400" alt="Liquid Press Effects Animation"/>
+  <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/refs/heads/main/screenshots/liquid_press_effects.gif" width="400" alt="Liquid Press Effects Animation"/>
 </div>
 
 ```dart
@@ -180,7 +180,7 @@ LiquidPressContainer(
 <div align="center">
   <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/refs/heads/main/screenshots/interactive_containers.PNG" width="400" alt="Interactive Containers"/>
   <br/>
-  <img src="screenshots/interactive_containers%28custom_cursor%29.gif" width="400" alt="Interactive Containers Animation"/>
+  <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/refs/heads/main/screenshots/interactive_containers.gif" width="400" alt="Interactive Containers Animation"/>
 </div>
 
 ```dart
@@ -200,7 +200,7 @@ LinearGradientContainer(
 <div align="center">
   <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/refs/heads/main/screenshots/ambient_light_effects.PNG" width="400" alt="Ambient Light Effects"/>
   <br/>
-  <img src="screenshots/ambient_light_effects.gif" width="400" alt="Ambient Light Effects Animation"/>
+  <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/refs/heads/main/screenshots/ambient_light_effects.gif" width="400" alt="Ambient Light Effects Animation"/>
 </div>
 
 ```dart
