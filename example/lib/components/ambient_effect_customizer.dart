@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:gradient_containers_plus/gradient_containers_plus.dart';
-import 'package:gradient_containers_plus/gradient_containers_plus/containers/ambient_light_customizer.dart';
+﻿import "package:flutter/material.dart";
+import "package:gradient_containers_plus/gradient_containers_plus.dart";
+import "package:gradient_containers_plus/gradient_containers_plus/containers/ambient_light_customizer.dart";
 
 class AmbientEffectCustomizer extends StatefulWidget {
   final List<Color> initialColors;
@@ -34,6 +34,8 @@ class _AmbientEffectCustomizerState extends State<AmbientEffectCustomizer> {
   late bool _isPulsing;
   late double _pulseScale;
   late Duration _duration;
+  late bool _showSharpBorder;
+  late double _glowWidthMultiplier;
 
   @override
   void initState() {
@@ -49,110 +51,183 @@ class _AmbientEffectCustomizerState extends State<AmbientEffectCustomizer> {
     _isPulsing = widget.initialPulsing;
     _pulseScale = widget.initialPulseScale;
     _duration = widget.initialDuration;
-  }
-
-  void _onSettingsChanged(AmbientLightSettings settings) {
-    setState(() {
-      _colors = settings.colors;
-      _intensity = settings.intensity;
-      _spread = settings.spread;
-      _blur = settings.blur;
-      _isPulsing = settings.isPulsing;
-      _pulseScale = settings.pulseScale;
-      _duration = settings.duration;
-    });
+    _showSharpBorder = false;
+    _glowWidthMultiplier = 3.5;
   }
 
   Future<void> _showCustomizer(BuildContext context) async {
-    return showModalBottomSheet(
+    // Store temporary settings that can be applied or discarded
+    List<Color> tempColors = List.from(_colors);
+    double tempIntensity = _intensity;
+    double tempSpread = _spread;
+    double tempBlur = _blur;
+    bool tempPulsing = _isPulsing;
+    double tempPulseScale = _pulseScale;
+    Duration tempDuration = _duration;
+    bool tempSharpBorder = _showSharpBorder;
+    double tempGlowMultiplier = _glowWidthMultiplier;
+    
+    final result = await showModalBottomSheet<bool>(
       context: context,
       backgroundColor: Colors.transparent,
       isScrollControlled: true,
-      builder: (context) => Container(
-        padding: EdgeInsets.only(
-          bottom: MediaQuery.of(context).viewInsets.bottom + 16,
-        ),
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-        ),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const SizedBox(height: 8),
-              Container(
-                width: 40,
-                height: 4,
-                decoration: BoxDecoration(
-                  color: Colors.grey[300],
-                  borderRadius: BorderRadius.circular(2),
-                ),
+      constraints: BoxConstraints(
+        maxHeight: MediaQuery.of(context).size.height * 0.85,
+      ),
+      builder: (context) {
+        return StatefulBuilder(
+          builder: (context, setState) {
+            return Container(
+              padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).viewInsets.bottom + 16,
               ),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+              ),
+              child: SingleChildScrollView(
                 child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Text(
-                      'Customize Ambient Light',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+                    const SizedBox(height: 8),
+                    Container(
+                      width: 40,
+                      height: 4,
+                      decoration: BoxDecoration(
+                        color: Colors.grey[300],
+                        borderRadius: BorderRadius.circular(2),
                       ),
                     ),
-                    const SizedBox(height: 16),
-                    AmbientLightCustomizer(
-                      initialColors: _colors,
-                      initialIntensity: _intensity,
-                      initialSpread: _spread,
-                      initialBlur: _blur,
-                      initialPulsing: _isPulsing,
-                      initialPulseScale: _pulseScale,
-                      initialDuration: _duration,
-                      onSettingsChanged: _onSettingsChanged,
-                    ),
-                    const SizedBox(height: 16),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: TextButton(
-                            onPressed: () {
-                              _initializeSettings();
-                              Navigator.pop(context);
-                            },
-                            child: const Text('Cancel'),
-                          ),
-                        ),
-                        const SizedBox(width: 16),
-                        Expanded(
-                          child: FilledButton(
-                            onPressed: () {
-                              debugPrint('Ambient settings applied: Colors: ${_colors.map((c) => c.value.toRadixString(16))}, Intensity: $_intensity');
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                  content: Text('Changes applied successfully'),
-                                  duration: Duration(seconds: 2),
-                                ),
-                              );
-                              Navigator.pop(context);
-                            },
-                            style: FilledButton.styleFrom(
-                              padding: const EdgeInsets.symmetric(vertical: 16),
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                        children: [
+                          const Text(
+                            'Customize Ambient Effect',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
                             ),
-                            child: const Text('Apply'),
                           ),
-                        ),
-                      ],
+                          const SizedBox(height: 16),
+                          AmbientLightCustomizer(
+                            initialColors: tempColors,
+                            initialIntensity: tempIntensity,
+                            initialSpread: tempSpread,
+                            initialBlur: tempBlur,
+                            initialPulsing: tempPulsing,
+                            initialPulseScale: tempPulseScale,
+                            initialDuration: tempDuration,
+                            onSettingsChanged: (settings) {
+                              setState(() {
+                                tempColors = settings.colors;
+                                tempIntensity = settings.intensity;
+                                tempSpread = settings.spread;
+                                tempBlur = settings.blur;
+                                tempPulsing = settings.isPulsing;
+                                tempPulseScale = settings.pulseScale;
+                                tempDuration = settings.duration;
+                              });
+                            },
+                          ),
+                          const SizedBox(height: 16),
+                          // Additional settings specific to the border style
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text(
+                                'Show Sharp Border',
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              Switch(
+                                value: tempSharpBorder,
+                                onChanged: (value) {
+                                  setState(() {
+                                    tempSharpBorder = value;
+                                  });
+                                },
+                              ),
+                            ],
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  const Text(
+                                    'Glow Width Multiplier',
+                                    style: TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                  Text(tempGlowMultiplier.toStringAsFixed(2) + 'x'),
+                                ],
+                              ),
+                              Slider(
+                                value: tempGlowMultiplier,
+                                min: 1.0,
+                                max: 10.0,
+                                onChanged: (newValue) {
+                                  setState(() {
+                                    tempGlowMultiplier = newValue;
+                                  });
+                                },
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 16),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: TextButton(
+                                  onPressed: () => Navigator.pop(context, false),
+                                  child: const Text('Cancel'),
+                                ),
+                              ),
+                              const SizedBox(width: 16),
+                              Expanded(
+                                child: FilledButton(
+                                  onPressed: () => Navigator.pop(context, true),
+                                  style: FilledButton.styleFrom(
+                                    padding: const EdgeInsets.symmetric(vertical: 16),
+                                  ),
+                                  child: const Text('Apply'),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
               ),
-            ],
-          ),
-        ),
-      ),
+            );
+          }
+        );
+      },
     );
+
+    if (result == true) {
+      // Apply changes
+      setState(() {
+        _colors = tempColors;
+        _intensity = tempIntensity;
+        _spread = tempSpread;
+        _blur = tempBlur;
+        _isPulsing = tempPulsing;
+        _pulseScale = tempPulseScale;
+        _duration = tempDuration;
+        _showSharpBorder = tempSharpBorder;
+        _glowWidthMultiplier = tempGlowMultiplier;
+      });
+      
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Effect updated'),
+          duration: Duration(seconds: 1),
+        ),
+      );
+    }
   }
 
   @override
@@ -167,11 +242,13 @@ class _AmbientEffectCustomizerState extends State<AmbientEffectCustomizer> {
       isPulsing: _isPulsing,
       pulseScaleFactor: _pulseScale,
       animationDuration: _duration,
+      showSharpBorder: _showSharpBorder,
+      glowWidthMultiplier: _glowWidthMultiplier,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: const [
           Text(
-            'Customize',
+            "Customize",
             style: TextStyle(
               color: Colors.black,
               fontSize: 18,
@@ -180,7 +257,7 @@ class _AmbientEffectCustomizerState extends State<AmbientEffectCustomizer> {
           ),
           SizedBox(height: 4),
           Text(
-            'Tap to edit',
+            "Tap to edit",
             style: TextStyle(
               color: Colors.black,
               fontSize: 12,

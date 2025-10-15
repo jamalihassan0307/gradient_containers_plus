@@ -10,6 +10,9 @@ class ShapesAndInteractionsExample extends StatefulWidget {
 }
 
 class _ShapesAndInteractionsExampleState extends State<ShapesAndInteractionsExample> {
+  bool _isCircle = false;
+  BoxShape get _shape => _isCircle ? BoxShape.circle : BoxShape.rectangle;
+
   void _showCustomizationInfo() {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
@@ -32,13 +35,35 @@ class _ShapesAndInteractionsExampleState extends State<ShapesAndInteractionsExam
           ),
         ),
         const SizedBox(height: 16),
+        _buildShapeToggle(),
+        const SizedBox(height: 16),
         _buildShapes(),
+        const SizedBox(height: 24),
+        _buildRotatingBorderEffects(),
         const SizedBox(height: 24),
         _buildInteractiveContainers(),
         const SizedBox(height: 24),
         _buildLiquidEffects(),
         const SizedBox(height: 24),
         _buildAmbientEffects(),
+      ],
+    );
+  }
+
+  Widget _buildShapeToggle() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Text('Rectangle'),
+        Switch(
+          value: _isCircle,
+          onChanged: (value) {
+            setState(() {
+              _isCircle = value;
+            });
+          },
+        ),
+        const Text('Circle'),
       ],
     );
   }
@@ -93,6 +118,120 @@ class _ShapesAndInteractionsExampleState extends State<ShapesAndInteractionsExam
               ),
             ),
           ],
+        ),
+      ],
+    );
+  }
+
+  Widget _buildRotatingBorderEffects() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Rotating Border Effects',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(height: 16),
+        Row(
+          children: [
+            Expanded(
+              child: AmbientLightContainer(
+                height: 150,
+                shape: _shape,
+                colors: const [Colors.cyan, Colors.blue, Colors.purple],
+                ambientIntensity: 0.8,
+                spreadRadius: 5.0,
+                blurRadius: 0.0,
+                showSharpBorder: true,
+                glowWidthMultiplier: 3.0,
+                animationDuration: const Duration(seconds: 3),
+                onTap: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Ambient Light Container with Sharp Border'),
+                      duration: Duration(seconds: 1),
+                    ),
+                  );
+                },
+                child: const Center(
+                  child: Text(
+                    'Sharp Border',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(width: 16),
+            Expanded(
+              child: AmbientLightContainer(
+                height: 150,
+                shape: _shape,
+                colors: const [Colors.pink, Colors.purple, Colors.deepPurple],
+                ambientIntensity: 0.8,
+                spreadRadius: 4.0,
+                blurRadius: 0.0,
+                showSharpBorder: false,
+                glowWidthMultiplier: 5.0,
+                animationDuration: const Duration(seconds: 5),
+                onTap: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Ambient Light with Wide Glow'),
+                      duration: Duration(seconds: 1),
+                    ),
+                  );
+                },
+                child: const Center(
+                  child: Text(
+                    'Glowing Border',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 16),
+        AmbientLightContainer(
+          height: 100,
+          colors: const [
+            Color(0xFF00BFFF), 
+            Color(0xFF1E90FF), 
+            Color(0xFF0000FF)
+          ],
+          shape: _shape,
+          ambientIntensity: 0.9,
+          spreadRadius: 3.0,
+          blurRadius: 0.0,
+          showSharpBorder: true,
+          glowWidthMultiplier: 2.5,
+          animationDuration: const Duration(seconds: 2),
+          onTap: () {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Blue Electric Container Tapped'),
+                duration: Duration(seconds: 1),
+              ),
+            );
+          },
+          child: const Center(
+            child: Text(
+              'Blue Electric',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
         ),
       ],
     );
