@@ -23,7 +23,7 @@
 
 ## Overview
 
-A Flutter package that provides beautiful and customizable gradient container templates for your Flutter applications. This package offers pre-designed container widgets with various gradient styles, shadows, and rounded corners to enhance your app's visual appeal.
+A Flutter package that provides beautiful and customizable gradient container templates for your Flutter applications. This package offers pre-designed container widgets with various gradient styles, shadows, and rounded corners to enhance your app's visual appeal. Now with advanced features like animated color changes, rotating gradient borders, ambient light effects, and interactive containers! Each section includes animated GIF demos so you can see the effects in action at a glance.
 
 ## Installation
 
@@ -31,15 +31,16 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  gradient_containers_plus: ^1.2.0
+  gradient_containers_plus: ^1.1.1
 ```
 
 ## Usage Examples
 
-### 1. Vertical Gradient Container
+### 1. Basic Gradient Containers
+
+#### Vertical Gradient Container
 <div align="center">
-  <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/main/screenshots/vertical_gradient_container.png" width="400" alt="Vertical Gradient"/>
-  <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/main/screenshots/custom_gradient_container.png" width="400" alt="Custom Vertical Gradient"/>
+  <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/refs/heads/main/screenshots/vertical_radient.PNG" width="400" alt="Vertical Gradient"/>
 </div>
 
 ```dart
@@ -52,10 +53,9 @@ VerticalGradientContainer(
 )
 ```
 
-### 2. Radial Gradient Container
+#### Radial Gradient Container
 <div align="center">
-  <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/main/screenshots/radial_gradient_container.png" width="400" alt="Radial Gradient"/>
-  <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/main/screenshots/custom_radial_gradient.png" width="400" alt="Custom Radial Gradient"/>
+  <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/refs/heads/main/screenshots/radial_gradient.PNG" width="400" alt="Radial Gradient"/>
 </div>
 
 ```dart
@@ -69,32 +69,13 @@ RadialGradientContainer(
 )
 ```
 
-### 3. Sweep Gradient Container
-<div align="center">
-  <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/main/screenshots/sweep_gradient_container.png" width="400" alt="Sweep Gradient"/>
-  <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/main/screenshots/custom_sweep_gradient.png" width="400" alt="Custom Sweep Gradient"/>
-</div>
+### 2. Animated Effects
 
-```dart
-SweepGradientContainer(
-  height: 150,
-  colors: const [
-    Colors.green,
-    Colors.teal,
-    Colors.blue
-  ],
-  startAngle: 0,
-  endAngle: 2 * 3.14159,
-  child: const Center(
-    child: Text('Sweep Gradient'),
-  ),
-)
-```
-
-### 4. Animated Gradient Container
+#### Animated Gradient Container
 <div align="center">
-  <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/main/screenshots/animated_gradient_container.gif" width="400" alt="Animated Gradient"/>
-  <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/main/screenshots/custom_animated_gradient.gif" width="400" alt="Custom Animated Gradient"/>
+  <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/refs/heads/main/screenshots/rotating_gradient.PNG" width="400" alt="Rotating Gradient"/>
+  <br/>
+  <!-- No GIF available for this demo yet -->
 </div>
 
 ```dart
@@ -112,10 +93,34 @@ AnimatedGradientContainer(
 )
 ```
 
-### 5. Glassmorphic Gradient Container
+#### Color Change Gradient (NEW!)
 <div align="center">
-  <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/main/screenshots/glassmorphic_gradient_container.png" width="400" alt="Glassmorphic Effect"/>
-  <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/main/screenshots/custom_glassmorphic_gradient.png" width="400" alt="Custom Glassmorphic Effect"/>
+  <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/refs/heads/main/screenshots/color_change_gradient.PNG" width="400" alt="Color Change Gradient"/>
+  <br/>
+  <img src="screenshots/color_change_gradient.gif" width="400" alt="Color Change Gradient Animation"/>
+</div>
+
+```dart
+AnimatedColorChangeContainer(
+  height: 150,
+  colorSets: [
+    [Colors.blue, Colors.purple],
+    [Colors.red, Colors.orange],
+    [Colors.green, Colors.yellow],
+  ],
+  duration: const Duration(seconds: 3),
+  curve: Curves.easeInOut,
+  child: const Center(
+    child: Text('Color Change Effect'),
+  ),
+)
+```
+
+### 3. Special Effects
+
+#### Glassmorphic Gradient Container
+<div align="center">
+  <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/refs/heads/main/screenshots/glassmorphic_effect.PNG" width="400" alt="Glassmorphic Effect"/>
 </div>
 
 ```dart
@@ -130,39 +135,9 @@ GlassmorphicGradientContainer(
 )
 ```
 
-### 6. Shape & Interaction Examples
-
-Containers can now be circular and interactive:
-
-```dart
-// Circular container
-LinearGradientContainer(
-  height: 150,
-  shape: BoxShape.circle,
-  colors: const [Colors.blue, Colors.purple],
-  child: const Center(
-    child: Text('Circle'),
-  ),
-)
-
-// Interactive container with tap handling
-LinearGradientContainer(
-  height: 100,
-  colors: const [Colors.green, Colors.teal],
-  onTap: () {
-    print('Container tapped!');
-  },
-  mouseCursor: SystemMouseCursors.click,
-  child: const Center(
-    child: Text('Tap Me!'),
-  ),
-)
-```
-
-### 7. Neon Gradient Container
+#### Neon Gradient Container
 <div align="center">
-  <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/main/screenshots/neon_gradient_container.png" width="400" alt="Neon Glow"/>
-  <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/main/screenshots/custom_neon_gradient.png" width="400" alt="Custom Neon Glow"/>
+  <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/refs/heads/main/screenshots/neon_effect.PNG" width="400" alt="Neon Glow"/>
 </div>
 
 ```dart
@@ -180,17 +155,176 @@ NeonGradientContainer(
 )
 ```
 
+### 4. Interactive Effects
+
+#### Liquid Press Effects (NEW!)
+<div align="center">
+  <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/refs/heads/main/screenshots/liquid_press_effects.PNG" width="400" alt="Liquid Press Effect"/>
+  <br/>
+  <img src="screenshots/liquid_press_effects.gif" width="400" alt="Liquid Press Effects Animation"/>
+</div>
+
+```dart
+LiquidPressContainer(
+  height: 100,
+  colors: const [Colors.purple, Colors.deepPurple],
+  curve: Curves.easeInOutBack,
+  animationDuration: const Duration(milliseconds: 800),
+  child: const Center(
+    child: Text('Press Me!', style: TextStyle(color: Colors.white)),
+  ),
+)
+```
+
+#### Interactive Containers (NEW!)
+<div align="center">
+  <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/refs/heads/main/screenshots/interactive_containers.PNG" width="400" alt="Interactive Containers"/>
+  <br/>
+  <img src="screenshots/interactive_containers%28custom_cursor%29.gif" width="400" alt="Interactive Containers Animation"/>
+</div>
+
+```dart
+LinearGradientContainer(
+  height: 100,
+  colors: const [Colors.green, Colors.teal],
+  onTap: () {
+    debugPrint('Container tapped!');
+  },
+  child: const Center(
+    child: Text('Tap Me!', style: TextStyle(color: Colors.white)),
+  ),
+)
+```
+
+### 5. Ambient Light Effects (NEW!)
+<div align="center">
+  <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/refs/heads/main/screenshots/ambient_light_effects.PNG" width="400" alt="Ambient Light Effects"/>
+  <br/>
+  <img src="screenshots/ambient_light_effects.gif" width="400" alt="Ambient Light Effects Animation"/>
+</div>
+
+```dart
+AmbientLightContainer(
+  height: 120,
+  colors: const [Color(0xFFFF69B4), Color(0xFF8A2BE2)],
+  ambientIntensity: 1,
+  spreadRadius: 7,
+  blurRadius: 0,
+  showSharpBorder: true,
+  child: const Center(
+    child: Text('Ambient Light Effect'),
+  ),
+)
+```
+
+### 6. Rotating Border Effects (NEW!)
+<div align="center">
+  <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/refs/heads/main/screenshots/rotating_border_effects.PNG" width="400" alt="Rotating Border Effects"/>
+  <br/>
+  <!-- No GIF available for this demo yet -->
+</div>
+
+```dart
+AmbientLightContainer(
+  height: 150,
+  colors: const [Colors.cyan, Colors.blue, Colors.purple],
+  ambientIntensity: 0.8,
+  spreadRadius: 5.0,
+  blurRadius: 0.0,
+  showSharpBorder: true,
+  glowWidthMultiplier: 3.0,
+  animationDuration: const Duration(seconds: 3),
+  child: const Center(
+    child: Text('Rotating Border'),
+  ),
+)
+```
+
+### 7. Different Shapes (NEW!)
+<div align="center">
+  <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/refs/heads/main/screenshots/different_shapes.PNG" width="400" alt="Different Shapes"/>
+</div>
+
+```dart
+// Circular container
+LinearGradientContainer(
+  height: 150,
+  shape: BoxShape.circle,
+  colors: const [Colors.blue, Colors.purple],
+  child: const Center(
+    child: Text('Circle', style: TextStyle(color: Colors.white)),
+  ),
+)
+
+// Rounded container
+LinearGradientContainer(
+  height: 150,
+  borderRadius: BorderRadius.circular(75),
+  colors: const [Colors.orange, Colors.red],
+  child: const Center(
+    child: Text('Rounded', style: TextStyle(color: Colors.white)),
+  ),
+)
+```
+
+### 8. Preset Gradients (NEW!)
+<div align="center">
+  <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/refs/heads/main/screenshots/preset_gradients(sunset).PNG" width="400" alt="Sunset Preset"/>
+</div>
+
+```dart
+// Using preset gradients
+LinearGradientContainer(
+  height: 150,
+  colors: GradientPresets.sunset,
+  child: const Center(
+    child: Text('Sunset Preset', style: TextStyle(color: Colors.white)),
+  ),
+)
+```
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/jamalihassan0307/gradient_containers_plus/refs/heads/main/screenshots/preset_gradients(ocean_blue).PNG" width="400" alt="Ocean Blue Preset"/>
+</div>
+
+```dart
+// Ocean Blue preset
+LinearGradientContainer(
+  height: 150,
+  colors: GradientPresets.oceanBlue,
+  child: const Center(
+    child: Text('Ocean Blue Preset', style: TextStyle(color: Colors.white)),
+  ),
+)
+```
+
 ## Features
 
-✨ 6 pre-designed gradient container templates:
-  - 🎨 Vertical Gradient Container with customizable colors and direction
+### 🎬 GIF Demos
+
+Watch animated features in action! Each section includes an animated GIF demo.
+
+✨ Multiple pre-designed gradient container templates:
+  - 🎨 Vertical & Linear Gradient Containers with customizable colors and direction
   - 🔄 Radial Gradient Container with adjustable radius and center point
   - 🌈 Sweep Gradient Container with configurable start and end angles
   - ✨ Animated Gradient Container with smooth color transitions
   - 🌟 Glassmorphic Gradient Container with blur and transparency effects
   - 💫 Neon Gradient Container with customizable glow effects
+  - 🔄 Animated Color Change Container with smooth transitions between color sets
+  - 💧 Liquid Press Container with interactive spring animation effects
+  - 🌈 Ambient Light Container with customizable glow and rotating border effects
+  - 🔄 Mesh Gradient Container for beautiful color mesh effects
 
-🎯 Additional Features:
+🎯 Advanced Features:
+- ✨ Rotating gradient borders with customizable animation speed
+- 🔌 Interactive containers with tap, hover, and custom cursor support
+- 🌟 Ambient light effects with customizable glow and intensity
+- 🎭 Multiple shape options: circle, rectangle, and custom border radius
+- 🎨 Ready-to-use preset gradients for quick implementation
+- 💧 Spring-based liquid press animations for tactile feedback
+
+🛠️ Core Features:
 - 📱 Responsive design with flexible width and height
 - 🎨 Customizable borders, shadows, and corner radius
 - 🔌 Easy integration with any Flutter widget
@@ -210,9 +344,13 @@ Each container can be customized with:
 - 🔲 Border radius and width
 - 📐 Container dimensions
 - 📏 Padding and margin
-- ✨ Specific effects (blur, glow, animation duration)
+- ✨ Specific effects (blur, glow, animation duration, rotation speed)
 - 🌗 Shadow properties
 - 📍 Child widget positioning
+- 🔄 Animation properties (duration, curve, pulse scale)
+- 💫 Interactive properties (onTap, onHover, mouseCursor)
+- 🌈 Ambient light settings (intensity, spread, blur)
+- 🎭 Shape options (rectangle, circle, custom border radius)
 
 ## Documentation
 
@@ -235,7 +373,7 @@ We welcome contributions! To contribute:
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License (2025) - see the [LICENSE](LICENSE) file for details.
 
 ## Contact
 
